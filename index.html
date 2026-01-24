@@ -1,0 +1,584 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Ohin | Portfolio</title>
+
+  <!-- Bootstrap -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css" rel="stylesheet">
+
+  <!-- Font -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
+
+  <!-- Custom CSS -->
+  <link rel="stylesheet" href="style.css" />
+
+
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css">
+
+</head>
+<body>
+
+  <!-- NAVBAR -->
+   <!-- NAVBAR -->
+<nav class="navbar fixed-top navbar-glass">
+  <div class="container d-flex align-items-center justify-content-between">
+
+    <!-- BRAND -->
+    <a class="navbar-brand" href="#home">
+      <span class="brand-dot"></span>
+      Ohin
+    </a>
+
+    <!-- DESKTOP MENU -->
+    <ul class="desktop-nav d-none d-lg-flex">
+      <li><a href="#projects" class="nav-link">Projects</a></li>
+      <li><a href="#skills" class="nav-link">Skills</a></li>
+      <li><a href="#about" class="nav-link">About</a></li>
+      <li><a href="#education" class="nav-link">Education</a></li>
+      <li><a class="btn btn-outline-light" href="#contact">Contact</a></li>
+    </ul>
+
+    <!-- MOBILE MENU BUTTON -->
+    <button class="btn btn-outline-light d-lg-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasMenu">
+      <i class="bi bi-list"></i>
+    </button>
+  </div>
+</nav>
+
+<!-- OFFCANVAS MENU (Right Side) -->
+<div class="offcanvas offcanvas-end offcanvas-glass" tabindex="-1" id="offcanvasMenu">
+  <div class="offcanvas-header">
+    <h5 class="offcanvas-title">Menu</h5>
+    <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas"></button>
+  </div>
+
+  <div class="offcanvas-body">
+    <ul class="offcanvas-nav">
+      <li><a class="offcanvas-link" href="#projects"><i class="bi bi-grid-3x3-gap-fill"></i> Projects</a></li>
+      <li><a class="offcanvas-link" href="#skills"><i class="bi bi-stars"></i> Skills</a></li>
+      <li><a class="offcanvas-link" href="#about"><i class="bi bi-person-circle"></i> About</a></li>
+      <li><a class="offcanvas-link" href="#education"><i class="bi bi-mortarboard-fill"></i> Education</a></li>
+      <li><a class="offcanvas-link btn btn-outline-light w-100 mt-3" href="#contact">
+        <i class="bi bi-chat-dots-fill"></i> Contact
+      </a></li>
+    </ul>
+  </div>
+</div>
+
+
+  <!-- HERO -->
+   
+<header class="hero" id="home">
+  <div class="container hero-content">
+    <div class="hero-left">
+      <h1 class="title mt-5">
+        Hi, I'm <span class="highlight">Nur Foisal Ohin</span>
+      </h1>
+      <p class="subtitle">
+        I build <span class="gradient-text">modern</span> and <span class="gradient-text">interactive</span> web apps.
+      </p>
+
+
+
+
+      
+      <div class="typewriter-box">
+        <img src="OHINFV.jpg" class="type-img" alt="Ohin">
+        <div class="typewriter">
+          <span id="typed1"></span>
+        </div>
+      </div>
+    </div>
+
+    <div class="hero-right">
+      <div class="card-glass">
+        <div class="card-top">
+          <span class="dot dot-red"></span>
+          <span class="dot dot-yellow"></span>
+          <span class="dot dot-green"></span>
+        </div>
+
+        <div class="card-body">
+          <h4>Featured</h4>
+          <p>
+            I am a • <span id="typed2"></span>
+          </p>
+
+          <div class="stats">
+            <div class="stat">
+              <h3>20+</h3>
+              <p>| Projects |</p>
+            </div>
+            <div class="stat">
+              <h3>1+</h3>
+              <p>| Years |</p>
+            </div>
+            <div class="stat">
+              <h3>10+</h3>
+              <p>| Skills |</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="orbit">
+        <div class="circle c1"></div>
+        <div class="circle c2"></div>
+        <div class="circle c3"></div>
+        <div class="center"></div>
+      </div>
+    </div>
+
+<div class="hero-btn">
+        <a class="btn btn-primary" href="#projects">See Projects</a>
+        <a class="btn btn-outline-light" href="ohin.cv (1).jpg" download>Download CV</a>
+      </div>
+
+
+
+  </div>
+</header>
+
+<script>
+  const words = ["Web Developer", "Frontend Developer", "MERN Developer", "Full Stack Developer"];
+  let i = 0, j = 0, isDeleting = false;
+
+  function typeEffect() {
+    const current = words[i];
+    const typed1 = document.getElementById("typed1");
+    const typed2 = document.getElementById("typed2");
+
+    if (!isDeleting) {
+      const text = current.slice(0, j++);
+      typed1.textContent = text;
+      typed2.textContent = text;
+
+      if (j > current.length) {
+        isDeleting = true;
+        setTimeout(typeEffect, 800);
+        return;
+      }
+    } else {
+      const text = current.slice(0, j--);
+      typed1.textContent = text;
+      typed2.textContent = text;
+
+      if (j === 0) {
+        isDeleting = false;
+        i = (i + 1) % words.length;
+      }
+    }
+
+    setTimeout(typeEffect, isDeleting ? 60 : 120);
+  }
+
+  typeEffect();
+
+
+
+</script>
+
+
+
+
+  <!-- ABOUT -->
+  <section id="about" class="section">
+
+    <div class="container">
+    <!-- About -->
+    <section id="about" class="bg-info-subtle p-4 rounded ">
+      <h3 class="text-danger">👨‍🎓 About Me</h3>
+      <p class="text-black">
+        I'm <b>Nur Foisal Ohin</b>, a Computer Science & Engineering student (5th semester).<br>
+        I love building modern and responsive web applications using
+        <b>HTML, CSS, JavaScript, Bootstrap, React.js, Node.js, Express.js, MongoDB</b>, and
+        <b>Authentication systems</b>.<br>
+        I am currently working as a <b>Full-Stack Web Developer</b>, constantly improving my skills and building real-world projects.<br>
+        My long-term goal is to become a highly skilled and professional <b>Full-Stack Web Developer</b>.
+      </p>
+      
+    </section>
+
+    <!-- Education -->
+    <section id="education"  class="bg-primary-subtle p-4 rounded mt-4">
+      <h3 class="text-black ">🎓 Education</h3>
+      <ul class="text-dark-emphasis">
+        <li>B.Sc. in Computer Science & Engineering (Ongoing)</li>
+        <li>5th Semester, Feni University</li>
+      </ul>
+      </div>
+    </section>
+
+  </section>
+
+  <!-- PROJECTS -->
+  <section id="projects" class="section">
+  <div class="container">
+    <h2 class="section-title bg-gradient">Projects (Full-Stack)</h2>
+
+    <div class="row g-3">
+      <!-- Project Card 1 -->
+      <div class="col-12 col-md-4">
+        <div class="project-card bg-gradient">
+          <h3 class="text-success"><i class="bi bi-cart-fill"></i> E-commerce Platform</h3>
+          <p class="text-warning-emphasis">Full-stack MERN with admin dashboard and payment system.</p>
+          <div class="d-flex gap-2">
+            <a href="https://github.com/ohin03/emad-telecom-feni" target="_blank" class="btn btn-sm btn-outline-light">
+              <i class="bi bi-github"></i> GitHub
+            </a>
+            <a href="https://emad-telecom-feni-8.onrender.com/" target="_blank" class="btn btn-sm btn-light bg-primary text-white">
+              <i class="bi bi-box-arrow-up-right "></i> Live Demo
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Project Card 2 -->
+      <div class="col-12 col-md-4">
+        <div class="project-card bg-gradient">
+          <h3 class="text-success"><i class="bi bi-droplet-half"></i> Blood Donation System</h3>
+          <p class="text-warning-emphasis">Donor registration, admin panel, search & image upload.</p>
+          <div class="d-flex gap-2">
+            <a href="https://github.com/ohin03/mohipal-donater-group" target="_blank" class="btn btn-sm btn-outline-light">
+              <i class="bi bi-github"></i> GitHub
+            </a>
+            <a href="https://mohipal-donater-group.vercel.app/" target="_blank" class="btn btn-sm btn-light bg-primary text-white">
+              <i class="bi bi-box-arrow-up-right"></i> Live Demo
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Project Card 3 -->
+      <div class="col-12 col-md-4">
+        <div class="project-card ohin03bg-gradient">
+          <h3  class="text-success"><i class="bi bi-trophy-fill"></i> Tournament Website</h3>
+          <p class="text-warning-emphasis">Matches, teams, live score, responsive dashboard.</p>
+          <div class="d-flex gap-2">
+            <a href="https://github.com/ohin03/chowdhury-badiy-tournament" target="_blank" class="btn btn-sm btn-outline-light">
+              <i class="bi bi-github"></i> GitHub
+            </a>
+            <a href="https://chowdhury-badiy-tournament-2.onrender.com/" target="_blank" class="btn btn-sm btn-light bg-primary text-white">
+              <i class="bi bi-box-arrow-up-right"></i> Live Demo
+            </a>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+
+  <div class="container">
+    <!-- Frontend Projects -->
+     <!-- Frontend Projects -->
+<section id="projects" class="mb-4">
+  <h3 class="text-center p-3 bg-info-subtle text-dark-emphasis">📂 Front-End Projects</h3>
+  <div class="row">
+
+    <!-- Project Card -->
+    <div class="col-6 col-md-6 mb-3">
+      <div class="card h-100 shadow-sm">
+        <div class="card-body">
+          <h5 class="card-title">
+            <i class="bi bi-laptop-fill"></i> Landing Page
+          </h5>
+          <div class="mt-2">
+            <a href="https://github.com/ohin03/API.git" target="_blank" class="btn btn-sm btn-outline-primary">
+              <i class="bi bi-github"></i> GitHub
+            </a>
+            <a href="https://car-website-221.netlify.app/" target="_blank" class="btn btn-sm btn-outline-success">
+              <i class="bi bi-box-arrow-up-right"></i> Live Demo
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Project Card -->
+    <div class="col-6 col-md-6 mb-3">
+      <div class="card h-100 shadow-sm">
+        <div class="card-body">
+          <h5 class="card-title">
+            <i class="bi bi-stack"></i> Next.js 4 Page Website
+          </h5>
+          <div class="mt-2">
+            <a href="https://github.com/ohin03/emad_telecom.git" target="_blank" class="btn btn-sm btn-outline-primary">
+              <i class="bi bi-github"></i> GitHub
+            </a>
+            <a href="https://emad-telecom.vercel.app" target="_blank" class="btn btn-sm btn-outline-success">
+              <i class="bi bi-box-arrow-up-right"></i> Live Demo
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Project Card -->
+    <div class="col-6 col-md-6 mb-3">
+      <div class="card h-100 shadow-sm">
+        <div class="card-body">
+          <h5 class="card-title">
+            <i class="bi bi-question-circle-fill"></i> Quiz App
+          </h5>
+          <div class="mt-2">
+            <a href="https://github.com/ohin03/learn.git" target="_blank" class="btn btn-sm btn-outline-primary">
+              <i class="bi bi-github"></i> GitHub
+            </a>
+            <a href="https://quiz-app-2025-normal.netlify.app/" target="_blank" class="btn btn-sm btn-outline-success">
+              <i class="bi bi-box-arrow-up-right"></i> Live Demo
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Project Card -->
+    <div class="col-6 col-md-6 mb-3">
+      <div class="card h-100 shadow-sm">
+        <div class="card-body">
+          <h5 class="card-title">
+            <i class="bi bi-controller"></i> 🎮 Tic Tac Toe Game
+          </h5>
+          <div class="mt-2">
+            <a href="https://github.com/ohin03/TIC-TOC-TOE-GAMES.git" target="_blank" class="btn btn-sm btn-outline-primary">
+              <i class="bi bi-github"></i> GitHub
+            </a>
+            <a href="https://tic-toc-toe-2025.netlify.app/" target="_blank" class="btn btn-sm btn-outline-success">
+              <i class="bi bi-box-arrow-up-right"></i> Live Demo
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Project Card -->
+    <div class="col-6 col-md-6 mb-3">
+      <div class="card h-100 shadow-sm">
+        <div class="card-body">
+          <h5 class="card-title">
+            <i class="bi bi-calculator-fill"></i> Calculator
+          </h5>
+          <div class="mt-2">
+            <a href="https://github.com/ohin03/calculator.git" target="_blank" class="btn btn-sm btn-outline-primary">
+              <i class="bi bi-github"></i> GitHub
+            </a>
+            <a href="https://calculator-prtc-2025.netlify.app/" target="_blank" class="btn btn-sm btn-outline-success">
+              <i class="bi bi-box-arrow-up-right"></i> Live Demo
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Project Card -->
+    <div class="col-6 col-md-6 mb-3">
+      <div class="card h-100 shadow-sm">
+        <div class="card-body">
+          <h5 class="card-title">
+            <i class="bi bi-shop-window"></i> Shop Landing Page
+          </h5>
+          <div class="mt-2">
+            <a href="https://github.com/ohin03/poject2.git" target="_blank" class="btn btn-sm btn-outline-primary">
+              <i class="bi bi-github"></i> GitHub
+            </a>
+            <a href="https://mobile-shop-landing-page-2025.netlify.app/" target="_blank" class="btn btn-sm btn-outline-success">
+              <i class="bi bi-box-arrow-up-right"></i> Live Demo
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+</div>
+
+
+  <!-- SKILLS -->
+ <section id="skills" class="section section-dark">
+  <div class="container">
+    <h2 class="section-title">
+  <span class="title-badge">
+    <i class="bi bi-lightning-fill"></i> Skills
+  </span>
+</h2>
+
+
+    <div class="skills-grid">
+
+      <div class="skill-card bg-danger-subtle text-black">
+        <i class="bi bi-filetype-html skill-icon"></i>
+        <h4>HTML</h4>
+        <p>Modern semantic layout</p>
+      </div>
+
+      <div class="skill-card bg-danger-subtle text-black">
+        <i class="bi bi-palette skill-icon"></i>
+        <h4>CSS</h4>
+        <p>Animation & responsive design</p>
+      </div>
+
+      <div class="skill-card bg-danger-subtle text-black">
+        <i class="bi bi-braces skill-icon"></i>
+        <h4>JavaScript</h4>
+        <p>DOM, API & interaction</p>
+      </div>
+
+      <div class="skill-card bg-danger-subtle text-black">
+        <i class="bi bi-lightning-charge-fill skill-icon"></i>
+        <h4>React</h4>
+        <p>Component-based UI</p>
+      </div>
+
+      <div class="skill-card bg-danger-subtle text-black">
+        <i class="bi bi-bootstrap skill-icon"></i>
+        <h4>Bootstrap</h4>
+        <p>Rapid responsive UI</p>
+      </div>
+
+      <div class="skill-card bg-danger-subtle text-black">
+        <i class="bi bi-lightning-charge skill-icon"></i>
+        <h4>Next.js</h4>
+        <p>SSR & routing</p>
+      </div>
+
+      <div class="skill-card bg-danger-subtle text-black">
+        <i class="bi bi-node-plus skill-icon"></i>
+        <h4>Node.js</h4>
+        <p>Backend runtime</p>
+      </div>
+
+      <div class="skill-card bg-danger-subtle text-black">
+        <i class="bi bi-diagram-3 skill-icon"></i>
+        <h4>Express.js</h4>
+        <p>REST APIs</p>
+      </div>
+
+      <div class="skill-card bg-danger-subtle text-black">
+        <i class="bi bi-database skill-icon"></i>
+        <h4>MongoDB</h4>
+        <p>NoSQL database</p>
+      </div>
+
+      <div class="skill-card bg-danger-subtle text-black">
+        <i class="bi bi-shield-lock skill-icon"></i>
+        <h4>Authentication</h4>
+        <p>JWT & roles</p>
+      </div>
+
+      <div class="skill-card bg-danger-subtle text-black">
+        <i class="bi bi-gear skill-icon"></i>
+        <h4>Automation</h4>
+        <p>Basic workflows</p>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+
+
+  <!-- CONTACT -->
+  
+<!-- CONTACT -->
+<section id="contact" class="section bg-primary-subtle">
+  <div class="container">
+
+    <h2 class="section-title text-success">
+      <i class="bi bi-chat-dots-fill"></i> Contact
+    </h2>
+
+    <div class="contact-grid">
+      <a class="contact-card bg-warning" href="mailto:ohinnurfoisal@gmail.com">
+        <div class="contact-icon">
+          <i class="bi bi-envelope-fill"></i>
+        </div>
+        <h4>Email</h4>
+        <p>ohinnurfoisal@gmail.com</p>
+      </a>
+
+      <a class="contact-card bg-warning" href="https://wa.me/8801971676314" target="_blank">
+        <div class="contact-icon">
+          <i class="bi bi-whatsapp"></i>
+        </div>
+        <h4>WhatsApp</h4>
+        <p>+8801971676314</p>
+      </a>
+
+      <a class="contact-card bg-warning" href="https://github.com/ohin03" target="_blank">
+        <div class="contact-icon">
+          <i class="bi bi-github"></i>
+        </div>
+        <h4>GitHub</h4>
+        <p>github.com/ohin03</p>
+      </a>
+       <!-- LinkedIn Added -->
+      <a class="contact-card bg-warning" href="https://www.linkedin.com/in/nur-foisal-ohin" target="_blank">
+        <div class="contact-icon">
+          <i class="bi bi-linkedin"></i>
+        </div>
+        <h4>LinkedIn</h4>
+        <p>linkedin.com/in/nur-foisal-ohin</p>
+      </a>
+    </div>
+
+  </div>
+</section>
+
+  <!-- FOOTER -->
+ <footer class="footer">
+  <div class="container">
+    <div class="row align-items-center">
+
+      <!-- Logo / Name -->
+      <div class="col-12 col-md-4 mb-3 mb-md-0">
+        
+        <p class="footer-subtitle">Full-Stack Developer</p>
+      </div>
+
+      <!-- Quick Links -->
+      <div class="col-12 col-md-4 mb-3 mb-md-0">
+        <h5 class="footer-heading">Quick Links</h5>
+        <div class="footer-links">
+          <a href="#projects">Projects</a>
+          <a href="#skills">Skills</a>
+          <a href="#about">About</a>
+          <a href="#contact">Contact</a>
+        </div>
+      </div>
+
+      <!-- Social -->
+      <div class="col-12 col-md-4 text-md-end">
+        <h5 class="footer-heading text-primary">Follow Me</h5>
+        <div class="social-icons">
+          <a href="https://github.com/ohin03" target="_blank"><i class="bi bi-github"></i></a>
+          <a href="https://www.linkedin.com/in/your-linkedin-id" target="_blank"><i class="bi bi-linkedin"></i></a>
+          <a href="https://wa.me/8801971676314" target="_blank"><i class="bi bi-whatsapp"></i></a>
+        </div>
+      </div>
+
+    </div>
+
+    <hr class="footer-line">
+
+    <div class="row">
+      <div class="col-12 text-center">
+        <p class="footer-copy">© 2026 Nur Foisal Ohin. All Rights Reserved.</p>
+        
+      </div>
+    </div>
+  </div>
+</footer>
+
+
+  <!-- Bootstrap JS -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/js/bootstrap.bundle.min.js"></script>
+  <!-- Custom JS -->
+  <script src="script.js"></script>
+</body>
+</html>

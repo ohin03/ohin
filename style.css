@@ -1233,3 +1233,236 @@ body {
     transform: translate(0, 0);
   }
 }
+
+
+
+
+
+
+
+
+
+
+
+/* =========================
+  Eye Catching Sections
+========================= */
+.section {
+  padding: 60px 0;
+}
+
+/* Section title */
+.section-title {
+  font-size: 2.3rem;
+  font-weight: 800;
+  margin-bottom: 1.8rem;
+  text-align: center;
+}
+
+.title-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+  padding: 0.45rem 0.9rem;
+  border-radius: 999px;
+  background: rgba(255,255,255,0.12);
+  border: 1px solid rgba(255,255,255,0.2);
+  color: #fff;
+}
+
+/* =========================
+  WHAT I DO GRID
+========================= */
+.what-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1.2rem;
+}
+
+.what-card {
+  background: rgba(255,255,255,0.08);
+  border: 1px solid rgba(255,255,255,0.15);
+  border-radius: 18px;
+  padding: 25px 20px;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+  transition: transform 0.4s ease, box-shadow 0.4s ease;
+}
+
+.what-card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 20px 40px rgba(0,0,0,0.25);
+}
+
+.what-card::after {
+  content: "";
+  position: absolute;
+  inset: -50%;
+  background: linear-gradient(90deg, transparent, rgba(255,255,255,0.4), transparent);
+  animation: shine 3.5s linear infinite;
+}
+
+@keyframes shine {
+  0% { transform: translateX(-100%); }
+  100% { transform: translateX(100%); }
+}
+
+.what-icon {
+  width: 70px;
+  height: 70px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 15px;
+  background: rgba(255,255,255,0.18);
+  border: 1px solid rgba(255,255,255,0.2);
+  font-size: 1.8rem;
+}
+
+/* 🔥 Header Text Color (Different) */
+#what-i-do .section-title .title-badge {
+  background: rgba(255, 255, 255, 0.18);
+  border-color: rgba(13, 110, 253, 0.25);
+  color: #fff;
+}
+
+#why-hire .section-title .title-badge {
+  background: rgba(255, 255, 255, 0.18);
+  border-color: rgba(25, 135, 84, 0.25);
+  color: #fff;
+}
+
+/* 🔥 Card Text Color (Different from Header) */
+#what-i-do .what-card h4,
+#what-i-do .what-card p {
+  color: rgba(255,255,255,0.9);
+}
+
+#why-hire .hire-card h4,
+#why-hire .hire-card p {
+  color: rgba(255,255,255,0.9);
+}
+
+/* =========================
+  WHAT I DO TEXT
+========================= */
+.what-card h4 {
+  font-size: 1.2rem;
+  font-weight: 700;
+  margin-bottom: 0.5rem;
+}
+
+.what-card p {
+  color: rgba(255,255,255,0.85);
+  font-size: 0.95rem;
+}
+
+/* =========================
+  TOOLS
+========================= */
+.tool-wrap {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  justify-content: center;
+}
+
+.tool {
+  padding: 10px 14px;
+  border-radius: 999px;
+  background: rgba(255,255,255,0.12);
+  border: 1px solid rgba(255,255,255,0.2);
+  color: #fff;
+  font-weight: 600;
+  transition: transform 0.3s ease, background 0.3s ease;
+}
+
+.tool:hover {
+  transform: translateY(-6px);
+  background: rgba(255,255,255,0.22);
+}
+
+/* =========================
+  WHY HIRE ME
+========================= */
+.hire-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1.2rem;
+}
+
+.hire-card {
+  background: rgba(255,255,255,0.08);
+  border: 1px solid rgba(255,255,255,0.15);
+  border-radius: 18px;
+  padding: 25px 20px;
+  text-align: center;
+  transition: transform 0.4s ease, box-shadow 0.4s ease;
+}
+
+.hire-card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 20px 40px rgba(0,0,0,0.25);
+}
+
+.hire-card h4 {
+  font-size: 1.2rem;
+  font-weight: 700;
+  margin-bottom: 0.5rem;
+}
+
+.hire-card p {
+  color: rgba(255,255,255,0.85);
+}
+
+/* =========================
+  Responsive (Mobile)
+========================= */
+@media (max-width: 992px) {
+  .what-grid, .hire-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 576px) {
+  .what-grid, .hire-grid {
+    grid-template-columns: repeat(2, 1fr); /* 2 cards per row */
+  }
+  .section {
+    padding: 40px 0;
+  }
+  .section-title {
+    font-size: 2rem;
+  }
+}
+
+
+
+
+/* =========================
+  Hire Card Floating Animation
+========================= */
+/* =========================
+  Hire Card Floating Animation (Alternate)
+========================= */
+.hire-card {
+  animation: floaty 4s ease-in-out infinite;
+}
+
+/* odd cards will go up first */
+.hire-card:nth-child(odd) {
+  animation-direction: normal;
+}
+
+/* even cards will go down first */
+.hire-card:nth-child(even) {
+  animation-direction: reverse;
+}
+
+@keyframes floaty {
+  0%   { transform: translateY(0px); }
+  50%  { transform: translateY(-10px); }
+  100% { transform: translateY(0px); }
+}

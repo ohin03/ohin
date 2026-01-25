@@ -615,6 +615,7 @@ body {
   color: #000;
   transition: 0.3s ease;
   box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+   
 }
 
 .contact-card:hover {
@@ -646,17 +647,17 @@ body {
 @media (max-width: 768px) {
   .contact-grid {
     grid-template-columns: repeat(2, 1fr) !important;
-    gap: 10px !important;
+    gap: 5px !important;
   }
 
   .contact-card {
-    padding: 14px !important;
+    padding: 9px !important;
     border-radius: 12px !important;
   }
 
   .contact-icon {
-    width: 40px !important;
-    height: 40px !important;
+    width: 35px !important;
+    height: 35px !important;
   }
 
   .contact-icon i {
@@ -673,6 +674,44 @@ body {
 }
 
 
+
+
+
+
+
+
+
+/*contact animation*/
+.contact-card {
+  transition:
+    transform 0.3s ease,
+    box-shadow 0.3s ease;
+}
+
+.contact-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 16px 30px rgba(0,0,0,0.25);
+}
+.contact-icon {
+  transition: transform 0.3s ease;
+}
+
+.contact-card:hover .contact-icon {
+  transform: scale(1.15) rotate(-6deg);
+}
+.contact-card h4,
+.contact-card p {
+  transition: color 0.3s ease;
+}
+
+.contact-card:hover h4,
+.contact-card:hover p {
+  color: #000;
+}
+.contact-card:active {
+  transform: translateY(-4px) scale(0.98);
+  box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+}
 
 
 
@@ -1163,5 +1202,34 @@ body {
 
   .typewriter {
     font-size: 16px;
+  }
+}
+
+/*skills animation*/
+.skill-card {
+  position: relative;
+  padding: 1.5rem;
+  border-radius: 16px;
+  text-align: center;
+
+  animation: drift 8s ease-in-out infinite;
+}
+
+.skill-card:nth-child(odd) {
+  animation-delay: -2s;
+}
+.skill-card:nth-child(even) {
+  animation-delay: -4s;
+}
+
+@keyframes drift {
+  0% {
+    transform: translate(0, 0);
+  }
+  50% {
+    transform: translate(6px, -6px);
+  }
+  100% {
+    transform: translate(0, 0);
   }
 }

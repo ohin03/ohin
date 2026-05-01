@@ -33,9 +33,11 @@
 
     <!-- DESKTOP MENU -->
     <ul class="desktop-nav d-none d-lg-flex">
-      <li><a href="#projects" class="nav-link">Projects</a></li>
-      <li><a href="#skills" class="nav-link">Skills</a></li>
+      
+      
       <li><a href="#about" class="nav-link">About</a></li>
+      <li><a href="#skills" class="nav-link">Skills</a></li>
+      <li><a href="#projects" class="nav-link">Projects</a></li>
       <li><a href="#education" class="nav-link">Education</a></li>
       <li><a class="btn btn-outline-light" href="#contact">Contact</a></li>
     </ul>
@@ -56,9 +58,9 @@
 
   <div class="offcanvas-body">
     <ul class="offcanvas-nav">
-      <li><a class="offcanvas-link" href="#projects"><i class="bi bi-grid-3x3-gap-fill"></i> Projects</a></li>
-      <li><a class="offcanvas-link" href="#skills"><i class="bi bi-stars"></i> Skills</a></li>
       <li><a class="offcanvas-link" href="#about"><i class="bi bi-person-circle"></i> About</a></li>
+      <li><a class="offcanvas-link" href="#skills"><i class="bi bi-stars"></i> Skills</a></li>
+      <li><a class="offcanvas-link" href="#projects"><i class="bi bi-grid-3x3-gap-fill"></i> Projects</a></li>
       <li><a class="offcanvas-link" href="#education"><i class="bi bi-mortarboard-fill"></i> Education</a></li>
       <li><a class="offcanvas-link btn btn-outline-light w-100 mt-3" href="#contact">
         <i class="bi bi-chat-dots-fill"></i> Contact
@@ -216,290 +218,672 @@
 
   <!--SKILLS-->
 
+<!-- Required for Icons & Fonts -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;500;800&display=swap" rel="stylesheet">
 
+<style>
+    :root {
+        --p-glow: #00e5ff;
+        --s-glow: #7000ff;
+        --card-bg: rgba(255, 255, 255, 0.02);
+    }
 
+    #skills {
+        padding: 100px 20px;
+        background-color: #050505;
+        font-family: 'Plus Jakarta Sans', sans-serif;
+        color: #fff;
+        scroll-margin-top: 90px;
+    }
 
+    .skills-header {
+        text-align: center;
+        margin-bottom: 60px;
+    }
 
+    .skills-header p {
+        color: var(--p-glow);
+        text-transform: uppercase;
+        letter-spacing: 5px;
+        font-size: 0.8rem;
+        font-weight: 800;
+        margin-bottom: 10px;
+    }
 
- <section id="skills" class="section section-dark">
-  <div class="container">
-    <h2 class="section-title">
-  <span class="title-badge">
-    <i class="bi bi-lightning-fill"></i> Skills
-  </span>
-</h2>
+    .skills-header h2 {
+        font-size: clamp(1.8rem, 5vw, 3rem);
+        font-weight: 800;
+        background: linear-gradient(to bottom, #fff, #666);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+    }
 
+    .skills-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+        gap: 20px;
+        max-width: 1200px;
+        margin: 0 auto;
+    }
+
+    .skill-card {
+        background: var(--card-bg);
+        border: 1px solid rgba(255, 255, 255, 0.05);
+        border-radius: 25px;
+        padding: 35px 20px;
+        text-align: center;
+        transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        position: relative;
+        backdrop-filter: blur(12px);
+        animation: floating 5s ease-in-out infinite;
+    }
+
+    .skill-card:nth-child(even) { animation-delay: 1.5s; }
+
+    .skill-card:hover {
+        transform: translateY(-12px) scale(1.03);
+        border-color: var(--p-glow);
+        background: rgba(0, 229, 255, 0.04);
+        box-shadow: 0 20px 40px rgba(0,0,0,0.4);
+    }
+
+    .skill-card i {
+        font-size: 2.8rem;
+        margin-bottom: 18px;
+        color: #555;
+        transition: 0.3s;
+    }
+
+    .skill-card:hover i {
+        color: var(--p-glow);
+        transform: scale(1.15) rotate(5deg);
+        filter: drop-shadow(0 0 8px var(--p-glow));
+    }
+
+    .skill-card h4 {
+        font-size: 1rem;
+        font-weight: 700;
+        margin-bottom: 6px;
+        letter-spacing: 0.5px;
+    }
+
+    .skill-card span {
+        font-size: 0.6rem;
+        color: #777;
+        text-transform: uppercase;
+        font-weight: 600;
+        letter-spacing: 1px;
+    }
+
+    @keyframes floating {
+        0%, 100% { transform: translateY(0); }
+        50% { transform: translateY(-10px); }
+    }
+
+    /* Mobile Responsive Logic */
+    @media (max-width: 600px) {
+        .skills-grid {
+            grid-template-columns: repeat(2, 1fr); /* Mobile-e 2ti column */
+            gap: 12px;
+        }
+        .skill-card { padding: 25px 10px; }
+        .skill-card i { font-size: 2.2rem; }
+        .skill-card h4 { font-size: 0.9rem; }
+    }
+</style>
+
+<section id="skills">
+    <div class="skills-header">
+        <p>Expertise</p>
+        <h2>I HAVE SKILLS IN</h2>
+    </div>
 
     <div class="skills-grid">
+        <!-- HTML -->
+        <div class="skill-card">
+            <i class="fa-brands fa-html5"></i>
+            <h4>HTML5</h4>
+            <span>Structure</span>
+        </div>
 
-      <div class="skill-card bg-danger-subtle text-black">
-        <i class="bi bi-filetype-html skill-icon"></i>
-        <h4>HTML</h4>
-        <p>Modern semantic layout</p>
-      </div>
+        <!-- CSS -->
+        <div class="skill-card">
+            <i class="fa-brands fa-css3-alt"></i>
+            <h4>CSS3</h4>
+            <span>Styling</span>
+        </div>
 
-      <div class="skill-card bg-danger-subtle text-black">
-        <i class="bi bi-palette skill-icon"></i>
-        <h4>CSS</h4>
-        <p>Animation & responsive design</p>
-      </div>
+        <!-- JavaScript -->
+        <div class="skill-card">
+            <i class="fa-brands fa-js"></i>
+            <h4>JavaScript</h4>
+            <span>Logic</span>
+        </div>
 
-      <div class="skill-card bg-danger-subtle text-black">
-        <i class="bi bi-braces skill-icon"></i>
-        <h4>JavaScript</h4>
-        <p>DOM, API & interaction</p>
-      </div>
+        <!-- Bootstrap -->
+        <div class="skill-card">
+            <i class="fa-brands fa-bootstrap"></i>
+            <h4>Bootstrap</h4>
+            <span>UI Framework</span>
+        </div>
 
-      <div class="skill-card bg-danger-subtle text-black">
-        <i class="bi bi-lightning-charge-fill skill-icon"></i>
-        <h4>React</h4>
-        <p>Component-based UI</p>
-      </div>
+        <!-- React -->
+        <div class="skill-card">
+            <i class="fa-brands fa-react"></i>
+            <h4>React.js</h4>
+            <span>Frontend</span>
+        </div>
 
-      <div class="skill-card bg-danger-subtle text-black">
-        <i class="bi bi-bootstrap skill-icon"></i>
-        <h4>Bootstrap</h4>
-        <p>Rapid responsive UI</p>
-      </div>
+        <!-- Node -->
+        <div class="skill-card">
+            <i class="fa-brands fa-node-js"></i>
+            <h4>Node.js</h4>
+            <span>Runtime</span>
+        </div>
 
-      <div class="skill-card bg-danger-subtle text-black">
-        <i class="bi bi-lightning-charge skill-icon"></i>
-        <h4>Next.js</h4>
-        <p>SSR & routing</p>
-      </div>
+        <!-- Express -->
+        <div class="skill-card">
+            <i class="fa-solid fa-server"></i>
+            <h4>Express.js</h4>
+            <span>Backend</span>
+        </div>
 
-      <div class="skill-card bg-danger-subtle text-black">
-        <i class="bi bi-node-plus skill-icon"></i>
-        <h4>Node.js</h4>
-        <p>Backend runtime</p>
-      </div>
+        <!-- MongoDB -->
+        <div class="skill-card">
+            <i class="fa-solid fa-database"></i>
+            <h4>MongoDB</h4>
+            <span>Database</span>
+        </div>
 
-      <div class="skill-card bg-danger-subtle text-black">
-        <i class="bi bi-diagram-3 skill-icon"></i>
-        <h4>Express.js</h4>
-        <p>REST APIs</p>
-      </div>
+        <!-- Auth -->
+        <div class="skill-card">
+            <i class="fa-solid fa-user-shield"></i>
+            <h4>Authentication</h4>
+            <span>JWT & Bcrypt</span>
+        </div>
 
-      <div class="skill-card bg-danger-subtle text-black">
-        <i class="bi bi-database skill-icon"></i>
-        <h4>MongoDB</h4>
-        <p>NoSQL database</p>
-      </div>
+        <!-- Git -->
+        <div class="skill-card">
+            <i class="fa-brands fa-git-alt"></i>
+            <h4>Git</h4>
+            <span>Version Control</span>
+        </div>
 
-      <div class="skill-card bg-danger-subtle text-black">
-        <i class="bi bi-shield-lock skill-icon"></i>
-        <h4>Authentication</h4>
-        <p>JWT & roles</p>
-      </div>
+        <!-- GitHub -->
+        <div class="skill-card">
+            <i class="fa-brands fa-github"></i>
+            <h4>GitHub</h4>
+            <span>Deployment</span>
+        </div>
 
-      <div class="skill-card bg-danger-subtle text-black">
-        <i class="bi bi-gear skill-icon"></i>
-        <h4>Automation</h4>
-        <p>Basic workflows</p>
-      </div>
-
+        <!-- Vercel/Hosting -->
+        <div class="skill-card">
+            <i class="fa-solid fa-cloud-arrow-up"></i>
+            <h4>Production</h4>
+            <span>Vercel / Hosting</span>
+        </div>
     </div>
-  </div>
 </section>
-
-
-
-
-
-
 
   <!-- PROJECTS -->
-  <section id="projects" class="section">
-  <div class="container">
-    <h2 class="section-title bg-gradient">Projects (Full-Stack)</h2>
+ <!-- Required: Bootstrap Icons & Google Fonts -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;800&display=swap" rel="stylesheet">
 
-    <div class="row g-3">
-      <!-- Project Card 1 -->
-      <div class="col-12 col-md-4">
-        <div class="project-card bg-gradient">
-          <h3 class="text-success"><i class="bi bi-cart-fill"></i> E-commerce Platform</h3>
-          <p class="text-warning-emphasis">Full-stack MERN with admin dashboard and payment system.</p>
-          <div class="d-flex gap-2">
-            <a href="https://github.com/ohin03/emad-telecom-feni" target="_blank" class="btn btn-sm btn-outline-light">
-              <i class="bi bi-github"></i> GitHub
-            </a>
-            <a href="https://emad-telecom-feni-8.onrender.com/" target="_blank" class="btn btn-sm btn-light bg-primary text-white">
-              <i class="bi bi-box-arrow-up-right "></i> Live Demo
-            </a>
-          </div>
+<style>
+    #projects-iconic {
+        background-color: #030303;
+        font-family: 'Plus Jakarta Sans', sans-serif;
+        padding: 80px 0;
+        color: #fff;
+    }
+
+    .fs-section-title {
+        font-weight: 800;
+        font-size: 2.5rem;
+        text-align: center;
+        margin-bottom: 50px;
+        background: linear-gradient(90deg, #fff, #00e5ff);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+    }
+
+    /* Iconic Card Style */
+    .iconic-card {
+        background: rgba(255, 255, 255, 0.02);
+        border: 1px solid rgba(255, 255, 255, 0.07);
+        border-radius: 30px;
+        padding: 35px 25px;
+        height: 100%;
+        position: relative;
+        overflow: hidden; /* Icon ke card-er bhetor rakhar jonno */
+        transition: all 0.4s ease;
+        display: flex;
+        flex-direction: column;
+        z-index: 1;
+    }
+
+    .iconic-card:hover {
+        background: rgba(255, 255, 255, 0.04);
+        border-color: #00e5ff;
+        transform: translateY(-10px);
+    }
+
+    /* Floating Background Icon */
+    .bg-icon {
+        position: absolute;
+        right: -10px;
+        top: -10px;
+        font-size: 6rem;
+        color: rgba(255, 255, 255, 0.03); /* Ekdom halka color */
+        z-index: -1;
+        transition: 0.5s;
+        transform: rotate(15deg);
+    }
+
+    .iconic-card:hover .bg-icon {
+        color: rgba(0, 229, 255, 0.1);
+        transform: rotate(0deg) scale(1.1);
+    }
+
+    /* Content Styling */
+    .card-label {
+        font-size: 0.7rem;
+        font-weight: 800;
+        color: #00e5ff;
+        text-transform: uppercase;
+        letter-spacing: 1.5px;
+        margin-bottom: 12px;
+        display: block;
+    }
+
+    .card-title-fs {
+        font-weight: 800;
+        font-size: 1.3rem;
+        margin-bottom: 15px;
+        color: #ffffff;
+    }
+
+    .card-desc-fs {
+        font-size: 0.85rem;
+        color: #999;
+        line-height: 1.6;
+        margin-bottom: 25px;
+    }
+
+    /* Clickable Buttons */
+    .iconic-btn-group {
+        display: flex;
+        gap: 10px;
+        margin-top: auto;
+        position: relative;
+        z-index: 5; /* Ensure clickability */
+    }
+
+    .btn-iconic {
+        flex: 1;
+        padding: 12px 5px;
+        border-radius: 15px;
+        font-size: 0.7rem;
+        font-weight: 700;
+        text-decoration: none !important;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 6px;
+        transition: 0.3s;
+    }
+
+    .btn-iconic-git {
+        background: rgba(255, 255, 255, 0.05);
+        color: #fff;
+        border: 1px solid rgba(255, 255, 255, 0.1);
+    }
+
+    .btn-iconic-git:hover {
+        background: #fff;
+        color: #000;
+    }
+
+    .btn-iconic-live {
+        background: #00e5ff;
+        color: #000;
+        box-shadow: 0 4px 15px rgba(0, 229, 255, 0.2);
+    }
+
+    .btn-iconic-live:hover {
+        background: #fff;
+        box-shadow: 0 0 20px #00e5ff;
+    }
+
+    /* Mobile Responsive */
+    @media (max-width: 576px) {
+        .col-6 { padding: 8px !important; }
+        .iconic-card { padding: 25px 15px; border-radius: 20px; }
+        .bg-icon { font-size: 4rem; }
+        .card-title-fs { font-size: 1rem; }
+        .btn-iconic { font-size: 0.6rem; padding: 10px 4px; }
+    }
+</style>
+
+<section id="projects-iconic">
+    <div class="container">
+        <h2 class="fs-section-title">Full-Stack Solutions</h2>
+
+        <div class="row g-4">
+            <!-- Project 0: Pharmacy -->
+            <div class="col-12 col-md-3">
+                <div class="iconic-card">
+                    <i class="bi bi-capsule bg-icon"></i>
+                    <span class="card-label">ERP System</span>
+                    <h3 class="card-title-fs">Pharmacy Management</h3>
+                    <p class="card-desc-fs">Advanced management for stocks, sales, and accounts.</p>
+                    <div class="iconic-btn-group">
+                        <a href="https://github.com/ohin03/ph-managment" target="_blank" class="btn-iconic btn-iconic-git">
+                            <i class="bi bi-github"></i> GitHub
+                        </a>
+                        <a href="https://ph-managment-frontend.onrender.com/" target="_blank" class="btn-iconic btn-iconic-live">
+                            <i class="bi bi-cpu"></i> LIVE
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Project 1: E-commerce -->
+            <div class="col-12 col-md-3">
+                <div class="iconic-card">
+                    <i class="bi bi-cart4 bg-icon"></i>
+                    <span class="card-label">E-Commerce</span>
+                    <h3 class="card-title-fs">Emad Telecom</h3>
+                    <p class="card-desc-fs">Full-featured shop with MERN stack & admin dashboard.</p>
+                    <div class="iconic-btn-group">
+                        <a href="https://github.com/ohin03/emad-telecom-feni" target="_blank" class="btn-iconic btn-iconic-git">
+                            <i class="bi bi-github"></i> GitHub
+                        </a>
+                        <a href="https://emad-telecom-feni-8.onrender.com/" target="_blank" class="btn-iconic btn-iconic-live">
+                            <i class="bi bi-cpu"></i> LIVE
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Project 2: Blood Donation -->
+            <div class="col-12 col-md-3">
+                <div class="iconic-card">
+                    <i class="bi bi-droplet-fill bg-icon"></i>
+                    <span class="card-label">Health Tech</span>
+                    <h3 class="card-title-fs">Blood Donation</h3>
+                    <p class="card-desc-fs">Donor tracking and management portal for urgent needs.</p>
+                    <div class="iconic-btn-group">
+                        <a href="https://github.com/ohin03/mohipal-donater-group" target="_blank" class="btn-iconic btn-iconic-git">
+                            <i class="bi bi-github"></i> GitHub
+                        </a>
+                        <a href="https://mohipal-donater-group.vercel.app/" target="_blank" class="btn-iconic btn-iconic-live">
+                            <i class="bi bi-cpu"></i> LIVE
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Project 3: Tournament -->
+            <div class="col-12 col-md-3">
+                <div class="iconic-card">
+                    <i class="bi bi-trophy bg-icon"></i>
+                    <span class="card-label">Gaming App</span>
+                    <h3 class="card-title-fs">Tournament website</h3>
+                    <p class="card-desc-fs">Real-time tournament updates and team analytics dashboard.</p>
+                    <div class="iconic-btn-group">
+                        <a href="https://github.com/ohin03/chowdhury-badiy-tournament" target="_blank" class="btn-iconic btn-iconic-git">
+                            <i class="bi bi-github"></i> GitHub
+                        </a>
+                        <a href="https://chowdhury-badiy-tournament-2.onrender.com/" target="_blank" class="btn-iconic btn-iconic-live">
+                            <i class="bi bi-cpu"></i> LIVE
+                        </a>
+                    </div>
+                </div>
+            </div>
+
         </div>
-      </div>
-
-      <!-- Project Card 2 -->
-      <div class="col-12 col-md-4">
-        <div class="project-card bg-gradient">
-          <h3 class="text-success"><i class="bi bi-droplet-half"></i> Blood Donation System</h3>
-          <p class="text-warning-emphasis">Donor registration, admin panel, search & image upload.</p>
-          <div class="d-flex gap-2">
-            <a href="https://github.com/ohin03/mohipal-donater-group" target="_blank" class="btn btn-sm btn-outline-light">
-              <i class="bi bi-github"></i> GitHub
-            </a>
-            <a href="https://mohipal-donater-group.vercel.app/" target="_blank" class="btn btn-sm btn-light bg-primary text-white">
-              <i class="bi bi-box-arrow-up-right"></i> Live Demo
-            </a>
-          </div>
-        </div>
-      </div>
-
-      <!-- Project Card 3 -->
-      <div class="col-12 col-md-4">
-        <div class="project-card ohin03bg-gradient">
-          <h3  class="text-success"><i class="bi bi-trophy-fill"></i> Tournament Website</h3>
-          <p class="text-warning-emphasis">Matches, teams, live score, responsive dashboard.</p>
-          <div class="d-flex gap-2">
-            <a href="https://github.com/ohin03/chowdhury-badiy-tournament" target="_blank" class="btn btn-sm btn-outline-light">
-              <i class="bi bi-github"></i> GitHub
-            </a>
-            <a href="https://chowdhury-badiy-tournament-2.onrender.com/" target="_blank" class="btn btn-sm btn-light bg-primary text-white">
-              <i class="bi bi-box-arrow-up-right"></i> Live Demo
-            </a>
-          </div>
-        </div>
-      </div>
-
     </div>
-  </div>
 </section>
-
 
  
     <!-- Frontend Projects -->
-     <!-- Frontend Projects -->
-<section id="projects" class="mb-4 p-5 ">
-  <h3 class="text-center p-3 bg-info-subtle text-dark-emphasis">📂 Front-End Projects</h3>
-  <div class="row">
+<!-- Bootstrap Icons & Google Fonts -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;800&display=swap" rel="stylesheet">
 
-    <!-- Project Card -->
-    <div class="col-6 col-md-6 mb-3">
-      <div class="card h-100 shadow-sm">
-        <div class="card-body">
-          <h5 class="card-title">
-            <i class="bi bi-laptop-fill"></i> Landing Page
-          </h5>
-          <div class="mt-2">
-            <a href="https://github.com/ohin03/API.git" target="_blank" class="btn btn-sm btn-outline-primary">
-              <i class="bi bi-github"></i> GitHub
-            </a>
-            <a href="https://car-website-221.netlify.app/" target="_blank" class="btn btn-sm btn-outline-success">
-              <i class="bi bi-box-arrow-up-right"></i> Live Demo
-            </a>
-          </div>
+<style>
+    #projects {
+        background-color: #080808;
+        font-family: 'Plus Jakarta Sans', sans-serif;
+        color: #fff;
+        padding: 60px 15px !important;
+    }
+
+    .projects-title {
+        font-weight: 800;
+        font-size: 2rem;
+        margin-bottom: 40px;
+        text-align: center;
+        background: linear-gradient(135deg, #fff 0%, #00e5ff 100%);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+    }
+
+    /* Professional Card Design */
+    .pro-card {
+        background: rgba(255, 255, 255, 0.03);
+        border: 1px solid rgba(255, 255, 255, 0.08);
+        border-radius: 20px;
+        padding: 25px 20px;
+        height: 100%;
+        transition: all 0.4s ease-in-out;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        position: relative;
+    }
+
+    .pro-card:hover {
+        background: rgba(255, 255, 255, 0.06);
+        border-color: #00e5ff;
+        transform: translateY(-8px);
+        box-shadow: 0 10px 30px rgba(0, 229, 255, 0.1);
+    }
+
+    .icon-circle {
+        width: 50px;
+        height: 50px;
+        background: rgba(0, 229, 255, 0.1);
+        color: #00e5ff;
+        border-radius: 12px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 1.4rem;
+        margin-bottom: 15px;
+    }
+
+    .card-title-text {
+        font-weight: 700;
+        font-size: 1.1rem;
+        color: #f0f0f0;
+        margin-bottom: 25px !important;
+        line-height: 1.4;
+    }
+
+    /* Button Area - 100% Clickable */
+    .btn-stack {
+        display: flex;
+        gap: 10px;
+        margin-top: auto; /* Push buttons to bottom */
+    }
+
+    .btn-custom {
+        flex: 1;
+        padding: 10px 5px;
+        border-radius: 10px;
+        font-size: 0.75rem;
+        font-weight: 700;
+        text-decoration: none !important;
+        text-align: center;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 6px;
+        transition: 0.3s;
+        border: none;
+    }
+
+    .btn-git {
+        background: #1a1a1a;
+        color: #fff;
+    }
+
+    .btn-git:hover {
+        background: #333;
+    }
+
+    .btn-demo {
+        background: #00e5ff;
+        color: #000;
+    }
+
+    .btn-demo:hover {
+        background: #fff;
+        box-shadow: 0 0 15px #00e5ff;
+    }
+
+    /* Responsive Grid for Mobile (2 Columns) */
+    @media (max-width: 576px) {
+        .col-6 {
+            padding: 8px !important;
+        }
+        .pro-card {
+            padding: 20px 12px;
+        }
+        .card-title-text {
+            font-size: 0.9rem;
+            margin-bottom: 15px !important;
+        }
+        .btn-custom {
+            font-size: 0.65rem;
+            padding: 8px 4px;
+        }
+        .icon-circle {
+            width: 40px;
+            height: 40px;
+            font-size: 1.1rem;
+        }
+    }
+</style>
+
+<section id="projects">
+    <div class="container">
+        <h3 class="projects-title">📂 Front-End Projects</h3>
+        
+        <div class="row g-3">
+            <!-- Card 1 -->
+            <div class="col-6 col-md-4">
+                <div class="pro-card">
+                    <div class="icon-circle"><i class="bi bi-laptop"></i></div>
+                    <h5 class="card-title-text">Car Landing Page</h5>
+                    <div class="btn-stack">
+                        <a href="https://github.com/ohin03/API.git" target="_blank" class="btn-custom btn-git">
+                            <i class="bi bi-github"></i> Code
+                        </a>
+                        <a href="https://car-website-221.netlify.app/" target="_blank" class="btn-custom btn-demo">
+                            <i class="bi bi-display"></i> Live
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Card 2 -->
+            <div class="col-6 col-md-4">
+                <div class="pro-card">
+                    <div class="icon-circle"><i class="bi bi-stack"></i></div>
+                    <h5 class="card-title-text">Next.js Web App</h5>
+                    <div class="btn-stack">
+                        <a href="https://github.com/ohin03/emad_telecom.git" target="_blank" class="btn-custom btn-git">
+                            <i class="bi bi-github"></i> Code
+                        </a>
+                        <a href="https://emad-telecom.vercel.app" target="_blank" class="btn-custom btn-demo">
+                            <i class="bi bi-display"></i> Live
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Card 3 -->
+            <div class="col-6 col-md-4">
+                <div class="pro-card">
+                    <div class="icon-circle"><i class="bi bi-patch-question"></i></div>
+                    <h5 class="card-title-text">Quiz Application</h5>
+                    <div class="btn-stack">
+                        <a href="https://github.com/ohin03/learn.git" target="_blank" class="btn-custom btn-git">
+                            <i class="bi bi-github"></i> Code
+                        </a>
+                        <a href="https://quiz-app-2025-normal.netlify.app/" target="_blank" class="btn-custom btn-demo">
+                            <i class="bi bi-display"></i> Live
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Card 4 -->
+            <div class="col-6 col-md-4">
+                <div class="pro-card">
+                    <div class="icon-circle"><i class="bi bi-controller"></i></div>
+                    <h5 class="card-title-text">Tic Tac Toe Game</h5>
+                    <div class="btn-stack">
+                        <a href="https://github.com/ohin03/TIC-TOC-TOE-GAMES.git" target="_blank" class="btn-custom btn-git">
+                            <i class="bi bi-github"></i> Code
+                        </a>
+                        <a href="https://tic-toc-toe-2025.netlify.app/" target="_blank" class="btn-custom btn-demo">
+                            <i class="bi bi-display"></i> Live
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Card 5 -->
+            <div class="col-6 col-md-4">
+                <div class="pro-card">
+                    <div class="icon-circle"><i class="bi bi-calculator"></i></div>
+                    <h5 class="card-title-text">Smart Calculator</h5>
+                    <div class="btn-stack">
+                        <a href="https://github.com/ohin03/calculator.git" target="_blank" class="btn-custom btn-git">
+                            <i class="bi bi-github"></i> Code
+                        </a>
+                        <a href="https://calculator-prtc-2025.netlify.app/" target="_blank" class="btn-custom btn-demo">
+                            <i class="bi bi-display"></i> Live
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Card 6 -->
+            <div class="col-6 col-md-4">
+                <div class="pro-card">
+                    <div class="icon-circle"><i class="bi bi-shop-window"></i></div>
+                    <h5 class="card-title-text">Shop Landing Page</h5>
+                    <div class="btn-stack">
+                        <a href="https://github.com/ohin03/poject2.git" target="_blank" class="btn-custom btn-git">
+                            <i class="bi bi-github"></i> Code
+                        </a>
+                        <a href="https://mobile-shop-landing-page-2025.netlify.app/" target="_blank" class="btn-custom btn-demo">
+                            <i class="bi bi-display"></i> Live
+                        </a>
+                    </div>
+                </div>
+            </div>
+
         </div>
-      </div>
     </div>
-
-    <!-- Project Card -->
-    <div class="col-6 col-md-6 mb-3">
-      <div class="card h-100 shadow-sm">
-        <div class="card-body">
-          <h5 class="card-title">
-            <i class="bi bi-stack"></i> Next.js 4 Page Website
-          </h5>
-          <div class="mt-2">
-            <a href="https://github.com/ohin03/emad_telecom.git" target="_blank" class="btn btn-sm btn-outline-primary">
-              <i class="bi bi-github"></i> GitHub
-            </a>
-            <a href="https://emad-telecom.vercel.app" target="_blank" class="btn btn-sm btn-outline-success">
-              <i class="bi bi-box-arrow-up-right"></i> Live Demo
-            </a>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <!-- Project Card -->
-    <div class="col-6 col-md-6 mb-3">
-      <div class="card h-100 shadow-sm">
-        <div class="card-body">
-          <h5 class="card-title">
-            <i class="bi bi-question-circle-fill"></i> Quiz App
-          </h5>
-          <div class="mt-2">
-            <a href="https://github.com/ohin03/learn.git" target="_blank" class="btn btn-sm btn-outline-primary">
-              <i class="bi bi-github"></i> GitHub
-            </a>
-            <a href="https://quiz-app-2025-normal.netlify.app/" target="_blank" class="btn btn-sm btn-outline-success">
-              <i class="bi bi-box-arrow-up-right"></i> Live Demo
-            </a>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <!-- Project Card -->
-    <div class="col-6 col-md-6 mb-3">
-      <div class="card h-100 shadow-sm">
-        <div class="card-body">
-          <h5 class="card-title">
-            <i class="bi bi-controller"></i> 🎮 Tic Tac Toe Game
-          </h5>
-          <div class="mt-2">
-            <a href="https://github.com/ohin03/TIC-TOC-TOE-GAMES.git" target="_blank" class="btn btn-sm btn-outline-primary">
-              <i class="bi bi-github"></i> GitHub
-            </a>
-            <a href="https://tic-toc-toe-2025.netlify.app/" target="_blank" class="btn btn-sm btn-outline-success">
-              <i class="bi bi-box-arrow-up-right"></i> Live Demo
-            </a>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <!-- Project Card -->
-    <div class="col-6 col-md-6 mb-3">
-      <div class="card h-100 shadow-sm">
-        <div class="card-body">
-          <h5 class="card-title">
-            <i class="bi bi-calculator-fill"></i> Calculator
-          </h5>
-          <div class="mt-2">
-            <a href="https://github.com/ohin03/calculator.git" target="_blank" class="btn btn-sm btn-outline-primary">
-              <i class="bi bi-github"></i> GitHub
-            </a>
-            <a href="https://calculator-prtc-2025.netlify.app/" target="_blank" class="btn btn-sm btn-outline-success">
-              <i class="bi bi-box-arrow-up-right"></i> Live Demo
-            </a>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <!-- Project Card -->
-    <div class="col-6 col-md-6 mb-3">
-      <div class="card h-100 shadow-sm">
-        <div class="card-body">
-          <h5 class="card-title">
-            <i class="bi bi-shop-window"></i> Shop Landing Page
-          </h5>
-          <div class="mt-2">
-            <a href="https://github.com/ohin03/poject2.git" target="_blank" class="btn btn-sm btn-outline-primary">
-              <i class="bi bi-github"></i> GitHub
-            </a>
-            <a href="https://mobile-shop-landing-page-2025.netlify.app/" target="_blank" class="btn btn-sm btn-outline-success">
-              <i class="bi bi-box-arrow-up-right"></i> Live Demo
-            </a>
-          </div>
-        </div>
-      </div>
-    </div>
-
-  </div>
 </section>
-
-
-
-
-
-
-
-
-
-
 <!--What I do-->
 <!-- =========================
    WHAT I DO (EYE-CATCHING)
@@ -682,9 +1066,9 @@
       <div class="col-12 col-md-4 mb-3 mb-md-0">
         <h5 class="footer-heading">Quick Links</h5>
         <div class="footer-links">
-          <a href="#projects">Projects</a>
-          <a href="#skills">Skills</a>
           <a href="#about">About</a>
+          <a href="#skills">Skills</a>
+           <a href="#projects">Projects</a>
           <a href="#contact">Contact</a>
         </div>
       </div>

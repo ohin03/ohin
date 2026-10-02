@@ -1,1105 +1,2790 @@
+<!-- index.html -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Ohin | Portfolio</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <!-- Bootstrap -->
+  <meta name="description" content="Nur Foisal Ohin - Full-Stack Web Developer building responsive websites, web applications and custom business management systems.">
+  <meta name="author" content="Nur Foisal Ohin">
+
+  <title>Nur Foisal Ohin | Full-Stack Web Developer</title>
+
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
 
-  <!-- Font -->
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
 
-  <!-- Custom CSS -->
-  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="style.css">
 
+  <style>
+    :root {
+      --bg: #030507;
+      --bg2: #070b10;
+      --card: rgba(255,255,255,.045);
+      --border: rgba(255,255,255,.09);
+      --text: #f5f7fa;
+      --muted: #858d98;
+      --cyan: #00e5ff;
+      --purple: #7c3cff;
+      --green: #32e6a1;
+      --danger: #ff5575;
+    }
 
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css">
+    * {
+      box-sizing: border-box;
+    }
 
+    html {
+      scroll-behavior: smooth;
+      scroll-padding-top: 85px;
+    }
+
+    body {
+      margin: 0;
+      background:
+        radial-gradient(circle at 10% 10%, rgba(0,229,255,.07), transparent 28%),
+        radial-gradient(circle at 90% 30%, rgba(124,60,255,.06), transparent 25%),
+        var(--bg);
+      color: var(--text);
+      font-family: "Inter", sans-serif;
+      overflow-x: hidden;
+    }
+
+    a {
+      text-decoration: none;
+    }
+
+    section {
+      scroll-margin-top: 85px;
+    }
+
+    /* NAVBAR */
+    .navbar-glass {
+      background: rgba(3,5,7,.72);
+      backdrop-filter: blur(20px);
+      border-bottom: 1px solid rgba(255,255,255,.06);
+      padding: 15px 0;
+      transition: .3s;
+    }
+
+    .navbar-brand {
+      color: #fff !important;
+      font-size: 1.25rem;
+      font-weight: 900;
+      letter-spacing: -.5px;
+    }
+
+    .brand-dot {
+      display: inline-block;
+      width: 9px;
+      height: 9px;
+      background: var(--cyan);
+      border-radius: 50%;
+      margin-right: 7px;
+      box-shadow: 0 0 15px var(--cyan);
+    }
+
+    .desktop-nav {
+      list-style: none;
+      align-items: center;
+      gap: 25px;
+      margin: 0;
+      padding: 0;
+    }
+
+    .nav-link {
+      color: #969ca5 !important;
+      font-size: .8rem;
+      font-weight: 600;
+      transition: .3s;
+    }
+
+    .nav-link:hover,
+    .nav-link.active {
+      color: var(--cyan) !important;
+    }
+
+    .desktop-nav .btn {
+      border-radius: 10px;
+      font-size: .75rem;
+      padding: 9px 17px;
+    }
+
+    .offcanvas-glass {
+      background: #080b10;
+      color: white;
+    }
+
+    .offcanvas-title {
+      font-weight: 800;
+    }
+
+    .offcanvas-nav {
+      list-style: none;
+      padding: 0;
+    }
+
+    .offcanvas-nav li {
+      margin-bottom: 12px;
+    }
+
+    .offcanvas-link {
+      display: block;
+      padding: 13px 15px;
+      color: #ddd;
+      border-radius: 10px;
+      transition: .3s;
+    }
+
+    .offcanvas-link:hover {
+      color: var(--cyan);
+      background: rgba(0,229,255,.05);
+    }
+
+    /* HERO */
+    .hero {
+      min-height: 100vh;
+      padding: 145px 0 90px;
+      position: relative;
+      display: flex;
+      align-items: center;
+      background:
+        radial-gradient(circle at 12% 55%, rgba(0,229,255,.09), transparent 30%),
+        radial-gradient(circle at 90% 30%, rgba(124,60,255,.09), transparent 28%);
+    }
+
+    .hero::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      pointer-events: none;
+      background-image:
+        linear-gradient(rgba(255,255,255,.025) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255,255,255,.025) 1px, transparent 1px);
+      background-size: 50px 50px;
+      mask-image: linear-gradient(to bottom, #000, transparent 90%);
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 2;
+    }
+
+    .hero-left {
+      position: relative;
+    }
+
+    .hero-photo-wrap {
+      width: 145px;
+      height: 145px;
+      position: relative;
+      margin-bottom: 30px;
+    }
+
+    .hero-photo {
+      width: 145px;
+      height: 145px;
+      object-fit: cover;
+      object-position: center top;
+      border-radius: 50%;
+      border: 3px solid rgba(0,229,255,.75);
+      position: relative;
+      z-index: 3;
+      box-shadow:
+        0 0 0 8px rgba(0,229,255,.04),
+        0 0 50px rgba(0,229,255,.25);
+      transition: .4s;
+    }
+
+    .hero-photo:hover {
+      transform: scale(1.04);
+      box-shadow:
+        0 0 0 10px rgba(0,229,255,.06),
+        0 0 70px rgba(0,229,255,.4);
+    }
+
+    .hero-photo-glow {
+      position: absolute;
+      inset: -20px;
+      border-radius: 50%;
+      background: conic-gradient(
+        #00e5ff,
+        transparent 30%,
+        #7c3cff,
+        transparent 70%,
+        #00e5ff
+      );
+      filter: blur(20px);
+      opacity: .45;
+      animation: rotateGlow 8s linear infinite;
+    }
+
+    @keyframes rotateGlow {
+      to {
+        transform: rotate(360deg);
+      }
+    }
+
+    .photo-status {
+      position: absolute;
+      left: 88px;
+      bottom: -9px;
+      z-index: 5;
+      white-space: nowrap;
+      padding: 7px 12px;
+      border: 1px solid rgba(255,255,255,.1);
+      border-radius: 30px;
+      background: rgba(8,10,14,.9);
+      backdrop-filter: blur(12px);
+      color: #aaa;
+      font-size: .62rem;
+    }
+
+    .photo-status span {
+      display: inline-block;
+      width: 7px;
+      height: 7px;
+      background: var(--green);
+      border-radius: 50%;
+      margin-right: 5px;
+      box-shadow: 0 0 10px var(--green);
+    }
+
+    .hero-eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 8px 13px;
+      border: 1px solid rgba(0,229,255,.18);
+      border-radius: 30px;
+      background: rgba(0,229,255,.04);
+      color: var(--cyan);
+      font-size: .68rem;
+      font-weight: 800;
+      letter-spacing: 1.4px;
+      text-transform: uppercase;
+      margin-bottom: 18px;
+    }
+
+    .title {
+      font-size: clamp(2.6rem, 6vw, 5rem);
+      font-weight: 900;
+      letter-spacing: -3px;
+      line-height: 1.02;
+      margin: 0 0 20px;
+    }
+
+    .highlight {
+      display: block;
+      background: linear-gradient(100deg,#fff,#00e5ff 55%,#7c3cff);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .subtitle {
+      color: #9aa1aa;
+      max-width: 650px;
+      font-size: clamp(1rem,2vw,1.25rem);
+      line-height: 1.7;
+    }
+
+    .gradient-text {
+      color: var(--cyan);
+      font-weight: 800;
+    }
+
+    .typewriter-box {
+      margin-top: 22px;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      color: #fff;
+      font-family: "JetBrains Mono", monospace;
+      font-size: .85rem;
+    }
+
+    .type-img {
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      object-fit: cover;
+      object-position: top;
+      border: 1px solid rgba(0,229,255,.5);
+    }
+
+    .cursor {
+      color: var(--cyan);
+      animation: blink .8s infinite;
+    }
+
+    @keyframes blink {
+      50% { opacity: 0; }
+    }
+
+    .hero-btn {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-top: 30px;
+    }
+
+    .hero-btn .btn {
+      border-radius: 12px;
+      padding: 12px 20px;
+      font-size: .78rem;
+      font-weight: 800;
+    }
+
+    .hero-btn .btn-primary {
+      background: var(--cyan);
+      border-color: var(--cyan);
+      color: #001014;
+    }
+
+    .hero-socials {
+      display: flex;
+      gap: 9px;
+      margin-top: 22px;
+    }
+
+    .hero-socials a {
+      width: 40px;
+      height: 40px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      border: 1px solid var(--border);
+      border-radius: 11px;
+      color: #8e949d;
+      background: rgba(255,255,255,.025);
+      transition: .3s;
+    }
+
+    .hero-socials a:hover {
+      color: var(--cyan);
+      border-color: var(--cyan);
+      transform: translateY(-3px);
+    }
+
+    /* HERO WINDOW */
+    .developer-window {
+      overflow: hidden;
+      border-radius: 24px;
+      border: 1px solid var(--border);
+      background: rgba(255,255,255,.035);
+      backdrop-filter: blur(20px);
+      box-shadow: 0 30px 100px rgba(0,0,0,.4);
+    }
+
+    .window-header {
+      height: 48px;
+      padding: 0 17px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      border-bottom: 1px solid rgba(255,255,255,.07);
+    }
+
+    .window-dots {
+      display: flex;
+      gap: 7px;
+    }
+
+    .dot {
+      display: inline-block;
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+    }
+
+    .dot-red { background: #ff5f57; }
+    .dot-yellow { background: #ffbd2e; }
+    .dot-green { background: #28c840; }
+
+    .window-title {
+      font-family: monospace;
+      font-size: .7rem;
+      color: #666;
+    }
+
+    .live-indicator {
+      color: var(--green);
+      font-size: .6rem;
+      font-weight: 800;
+    }
+
+    .live-indicator span {
+      display: inline-block;
+      width: 6px;
+      height: 6px;
+      background: var(--green);
+      border-radius: 50%;
+      box-shadow: 0 0 9px var(--green);
+      margin-right: 4px;
+    }
+
+    .code-preview {
+      padding: 28px;
+      color: #858b95;
+      font-family: "JetBrains Mono", monospace;
+      font-size: .72rem;
+      line-height: 2.1;
+    }
+
+    .code-indent {
+      padding-left: 22px;
+    }
+
+    .code-purple { color: #c084fc; }
+    .code-blue { color: #60a5fa; }
+    .code-yellow { color: #facc15; }
+    .code-green { color: #4ade80; }
+
+    .stats {
+      display: grid;
+      grid-template-columns: repeat(3,1fr);
+      border-top: 1px solid rgba(255,255,255,.07);
+    }
+
+    .stat {
+      padding: 17px 8px;
+      text-align: center;
+      border-right: 1px solid rgba(255,255,255,.06);
+    }
+
+    .stat:last-child {
+      border-right: 0;
+    }
+
+    .stat h3 {
+      margin: 0;
+      font-size: 1.5rem;
+      font-weight: 900;
+      color: white;
+    }
+
+    .stat h3 span {
+      color: var(--cyan);
+    }
+
+    .stat p {
+      margin: 4px 0 0;
+      color: #666;
+      font-size: .58rem;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+
+    /* GENERAL */
+    .section {
+      padding: 100px 0;
+    }
+
+    .section-heading {
+      text-align: center;
+      margin-bottom: 50px;
+    }
+
+    .section-kicker {
+      color: var(--cyan);
+      font-size: .65rem;
+      font-weight: 900;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+    }
+
+    .section-title {
+      margin: 12px 0;
+      font-size: clamp(2rem,5vw,3.2rem);
+      font-weight: 900;
+      background: linear-gradient(110deg,#fff,#aaa,#00e5ff);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .section-description {
+      color: var(--muted);
+      max-width: 650px;
+      margin: auto;
+      line-height: 1.7;
+    }
+
+    /* ABOUT */
+    #about {
+      background:
+        radial-gradient(circle at 80% 40%,rgba(0,229,255,.05),transparent 30%),
+        var(--bg2);
+    }
+
+    .about-card {
+      padding: 40px;
+      border: 1px solid var(--border);
+      border-radius: 25px;
+      background: var(--card);
+      box-shadow: 0 25px 70px rgba(0,0,0,.2);
+    }
+
+    .about-card h3 {
+      font-weight: 900;
+      color: white;
+      margin-bottom: 20px;
+    }
+
+    .about-card p {
+      color: #8f969f;
+      line-height: 1.9;
+      margin: 0;
+    }
+
+    .about-card b {
+      color: #fff;
+    }
+
+    .education-card {
+      height: 100%;
+      padding: 30px;
+      border-radius: 22px;
+      border: 1px solid rgba(0,229,255,.12);
+      background: rgba(0,229,255,.025);
+    }
+
+    .education-card i {
+      color: var(--cyan);
+      font-size: 2rem;
+    }
+
+    .education-card h4 {
+      margin-top: 15px;
+      font-weight: 800;
+    }
+
+    .education-card p,
+    .education-card li {
+      color: #888;
+      font-size: .85rem;
+      line-height: 1.8;
+    }
+
+    /* SKILLS */
+    #skills {
+      padding: 110px 20px;
+      background: #050505;
+    }
+
+    .skills-header {
+      text-align: center;
+      margin-bottom: 55px;
+    }
+
+    .skills-header p {
+      color: var(--cyan);
+      text-transform: uppercase;
+      letter-spacing: 5px;
+      font-size: .7rem;
+      font-weight: 900;
+    }
+
+    .skills-header h2 {
+      font-size: clamp(2rem,5vw,3rem);
+      font-weight: 900;
+      background: linear-gradient(to bottom,#fff,#666);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .skills-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit,minmax(160px,1fr));
+      gap: 18px;
+      max-width: 1200px;
+      margin: auto;
+    }
+
+    .skill-card {
+      padding: 30px 15px;
+      text-align: center;
+      border-radius: 22px;
+      border: 1px solid rgba(255,255,255,.06);
+      background: rgba(255,255,255,.025);
+      transition: .4s;
+    }
+
+    .skill-card:hover {
+      transform: translateY(-8px);
+      border-color: var(--cyan);
+      background: rgba(0,229,255,.04);
+      box-shadow: 0 20px 50px rgba(0,0,0,.35);
+    }
+
+    .skill-card i {
+      font-size: 2.5rem;
+      color: #555;
+      margin-bottom: 15px;
+      transition: .3s;
+    }
+
+    .skill-card:hover i {
+      color: var(--cyan);
+      filter: drop-shadow(0 0 10px var(--cyan));
+      transform: scale(1.1);
+    }
+
+    .skill-card h4 {
+      font-size: .95rem;
+      font-weight: 800;
+      margin: 0 0 5px;
+    }
+
+    .skill-card span {
+      color: #666;
+      font-size: .58rem;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+
+    /* FULL STACK */
+    #projects-iconic {
+      padding: 110px 0;
+      background:
+        radial-gradient(circle at 10% 30%,rgba(0,229,255,.05),transparent 30%),
+        radial-gradient(circle at 90% 70%,rgba(124,60,255,.05),transparent 30%),
+        #030303;
+    }
+
+    .fs-section-title {
+      text-align: center;
+      font-size: clamp(2rem,5vw,3.2rem);
+      font-weight: 900;
+      margin-bottom: 55px;
+      background: linear-gradient(100deg,#fff,#00e5ff);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .iconic-card {
+      height: 100%;
+      position: relative;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      padding: 30px 25px;
+      border-radius: 25px;
+      border: 1px solid rgba(255,255,255,.07);
+      background: linear-gradient(145deg,rgba(255,255,255,.05),rgba(255,255,255,.015));
+      transition: .45s;
+    }
+
+    .iconic-card:hover {
+      transform: translateY(-10px);
+      border-color: var(--cyan);
+      box-shadow: 0 25px 70px rgba(0,0,0,.4);
+    }
+
+    .bg-icon {
+      position: absolute;
+      right: -12px;
+      top: -15px;
+      font-size: 7rem;
+      color: rgba(255,255,255,.025);
+      z-index: 0;
+      transition: .5s;
+    }
+
+    .iconic-card:hover .bg-icon {
+      color: rgba(0,229,255,.08);
+      transform: rotate(-8deg) scale(1.1);
+    }
+
+    .card-label {
+      position: relative;
+      z-index: 2;
+      color: var(--cyan);
+      font-size: .62rem;
+      font-weight: 900;
+      letter-spacing: 1.6px;
+      text-transform: uppercase;
+      margin-bottom: 12px;
+    }
+
+    .card-title-fs {
+      position: relative;
+      z-index: 2;
+      font-size: 1.2rem;
+      font-weight: 900;
+      margin-bottom: 12px;
+    }
+
+    .card-desc-fs {
+      position: relative;
+      z-index: 2;
+      color: #858585;
+      font-size: .78rem;
+      line-height: 1.7;
+      min-height: 78px;
+    }
+
+    .project-tech {
+      position: relative;
+      z-index: 2;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+      margin-bottom: 22px;
+    }
+
+    .project-tech span {
+      color: #888;
+      border: 1px solid rgba(255,255,255,.07);
+      background: rgba(255,255,255,.03);
+      padding: 5px 7px;
+      border-radius: 5px;
+      font-size: .55rem;
+    }
+
+    .iconic-btn-group {
+      position: relative;
+      z-index: 3;
+      display: flex;
+      gap: 8px;
+      margin-top: auto;
+    }
+
+    .btn-iconic {
+      flex: 1;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 5px;
+      padding: 10px 5px;
+      border-radius: 10px;
+      font-size: .63rem;
+      font-weight: 800;
+      transition: .3s;
+    }
+
+    .btn-iconic-git {
+      color: #fff;
+      background: rgba(255,255,255,.05);
+      border: 1px solid rgba(255,255,255,.08);
+    }
+
+    .btn-iconic-git:hover {
+      background: white;
+      color: black;
+    }
+
+    .btn-iconic-live {
+      color: #001014;
+      background: var(--cyan);
+    }
+
+    .btn-iconic-live:hover {
+      color: #000;
+      background: #fff;
+      box-shadow: 0 0 20px rgba(0,229,255,.35);
+    }
+
+    /* PULSE */
+    .pulse-card {
+      border-color: rgba(0,229,255,.18);
+      background:
+        radial-gradient(circle at 70% 20%,rgba(0,229,255,.08),transparent 40%),
+        linear-gradient(145deg,rgba(255,255,255,.055),rgba(255,255,255,.015));
+    }
+
+    .live-project {
+      position: absolute;
+      right: 20px;
+      top: 20px;
+      z-index: 5;
+      color: var(--green);
+      font-size: .55rem;
+      font-weight: 900;
+      border: 1px solid rgba(50,230,161,.2);
+      background: rgba(50,230,161,.05);
+      border-radius: 20px;
+      padding: 5px 8px;
+    }
+
+    .live-project span {
+      display: inline-block;
+      width: 5px;
+      height: 5px;
+      border-radius: 50%;
+      background: var(--green);
+      box-shadow: 0 0 8px var(--green);
+      margin-right: 4px;
+    }
+
+    /* FRONTEND */
+    #projects {
+      padding: 110px 0;
+      background: #07090c;
+    }
+
+    .projects-title {
+      text-align: center;
+      font-size: clamp(2rem,5vw,3rem);
+      font-weight: 900;
+      margin-bottom: 45px;
+      background: linear-gradient(135deg,#fff,#00e5ff);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .pro-card {
+      height: 100%;
+      padding: 24px 20px;
+      display: flex;
+      flex-direction: column;
+      border-radius: 20px;
+      background: rgba(255,255,255,.025);
+      border: 1px solid rgba(255,255,255,.07);
+      transition: .4s;
+    }
+
+    .pro-card:hover {
+      transform: translateY(-8px);
+      border-color: rgba(0,229,255,.6);
+      box-shadow: 0 20px 50px rgba(0,0,0,.4);
+    }
+
+    .icon-circle {
+      width: 50px;
+      height: 50px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      border-radius: 13px;
+      background: rgba(0,229,255,.08);
+      color: var(--cyan);
+      font-size: 1.3rem;
+      margin-bottom: 15px;
+    }
+
+    .card-title-text {
+      font-size: 1rem;
+      font-weight: 800;
+      color: #eee;
+      margin-bottom: 22px;
+    }
+
+    .btn-stack {
+      display: flex;
+      gap: 8px;
+      margin-top: auto;
+    }
+
+    .btn-custom {
+      flex: 1;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 5px;
+      padding: 9px 4px;
+      border-radius: 9px;
+      font-size: .65rem;
+      font-weight: 800;
+      transition: .3s;
+    }
+
+    .btn-git {
+      color: white;
+      background: #17191d;
+      border: 1px solid rgba(255,255,255,.07);
+    }
+
+    .btn-git:hover {
+      background: white;
+      color: black;
+    }
+
+    .btn-demo {
+      color: #001014;
+      background: var(--cyan);
+    }
+
+    .btn-demo:hover {
+      color: black;
+      background: white;
+    }
+
+    /* WHAT I DO */
+    #what-i-do {
+      background: var(--bg);
+    }
+
+    .what-grid,
+    .hire-grid {
+      display: grid;
+      grid-template-columns: repeat(4,1fr);
+      gap: 18px;
+    }
+
+    .what-card,
+    .hire-card {
+      padding: 28px 22px;
+      border-radius: 20px;
+      border: 1px solid var(--border);
+      background: var(--card);
+      transition: .35s;
+    }
+
+    .what-card:hover,
+    .hire-card:hover {
+      transform: translateY(-7px);
+      border-color: rgba(0,229,255,.35);
+    }
+
+    .what-icon {
+      width: 48px;
+      height: 48px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 13px;
+      background: rgba(0,229,255,.07);
+      color: var(--cyan);
+      font-size: 1.2rem;
+      margin-bottom: 18px;
+    }
+
+    .what-card h4,
+    .hire-card h4 {
+      font-size: .95rem;
+      font-weight: 800;
+    }
+
+    .what-card p,
+    .hire-card p {
+      color: #777;
+      font-size: .75rem;
+      line-height: 1.7;
+      margin: 8px 0 0;
+    }
+
+    /* TOOLS */
+    #tools {
+      background: #050505;
+    }
+
+    .tool-wrap {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 10px;
+    }
+
+    .tool {
+      padding: 10px 16px;
+      border: 1px solid rgba(255,255,255,.08);
+      background: rgba(255,255,255,.025);
+      border-radius: 30px;
+      color: #aaa !important;
+      font-size: .7rem;
+      font-weight: 700;
+      transition: .3s;
+    }
+
+    .tool:hover {
+      color: var(--cyan) !important;
+      border-color: var(--cyan);
+      transform: translateY(-3px);
+    }
+
+    /* CONTACT */
+    #contact {
+      background:
+        radial-gradient(circle at 50% 0,rgba(0,229,255,.08),transparent 35%),
+        #050708;
+    }
+
+    .contact-grid {
+      display: grid;
+      grid-template-columns: repeat(4,1fr);
+      gap: 15px;
+    }
+
+    .contact-card {
+      min-height: 170px;
+      padding: 25px 18px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      border-radius: 18px;
+      color: white !important;
+      background: rgba(255,255,255,.035) !important;
+      border: 1px solid rgba(255,255,255,.08);
+      transition: .35s;
+    }
+
+    .contact-card:hover {
+      transform: translateY(-7px);
+      border-color: var(--cyan);
+      background: rgba(0,229,255,.04) !important;
+    }
+
+    .contact-icon {
+      color: var(--cyan);
+      font-size: 1.4rem;
+      margin-bottom: 12px;
+    }
+
+    .contact-card h4 {
+      font-size: .9rem;
+      font-weight: 800;
+    }
+
+    .contact-card p {
+      color: #777;
+      font-size: .65rem;
+      word-break: break-word;
+      margin: 0;
+    }
+
+    /* FOOTER */
+    .footer {
+      padding: 45px 0 25px;
+      background: #020304;
+      border-top: 1px solid rgba(255,255,255,.06);
+    }
+
+    .footer-subtitle {
+      color: #777;
+      margin: 0;
+      font-size: .75rem;
+    }
+
+    .footer-heading {
+      font-size: .75rem;
+      font-weight: 800;
+      margin-bottom: 12px;
+    }
+
+    .footer-links {
+      display: flex;
+      gap: 15px;
+      flex-wrap: wrap;
+    }
+
+    .footer-links a {
+      color: #666;
+      font-size: .68rem;
+      transition: .3s;
+    }
+
+    .footer-links a:hover {
+      color: var(--cyan);
+    }
+
+    .social-icons {
+      display: flex;
+      gap: 8px;
+      justify-content: flex-end;
+    }
+
+    .social-icons a {
+      width: 35px;
+      height: 35px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #888;
+      border: 1px solid rgba(255,255,255,.08);
+      border-radius: 9px;
+      transition: .3s;
+    }
+
+    .social-icons a:hover {
+      color: var(--cyan);
+      border-color: var(--cyan);
+    }
+
+    .footer-line {
+      border-color: rgba(255,255,255,.07);
+      margin: 30px 0 20px;
+    }
+
+    .footer-copy {
+      color: #555;
+      font-size: .65rem;
+      margin: 0;
+    }
+
+    /* REVEAL */
+    .reveal-item {
+      opacity: 0;
+      transform: translateY(25px);
+      transition: opacity .7s ease, transform .7s ease;
+    }
+
+    .reveal-visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* RESPONSIVE */
+    @media (max-width: 991px) {
+      .hero {
+        padding-top: 125px;
+      }
+
+      .hero-left {
+        text-align: center;
+      }
+
+      .hero-photo-wrap {
+        margin-left: auto;
+        margin-right: auto;
+      }
+
+      .hero-eyebrow,
+      .hero-socials,
+      .hero-btn {
+        justify-content: center;
+      }
+
+      .hero-right {
+        margin-top: 50px;
+      }
+
+      .what-grid,
+      .hire-grid {
+        grid-template-columns: repeat(2,1fr);
+      }
+
+      .contact-grid {
+        grid-template-columns: repeat(2,1fr);
+      }
+    }
+
+    @media (max-width: 767px) {
+      .title {
+        letter-spacing: -1.5px;
+      }
+
+      .about-card {
+        padding: 25px;
+      }
+
+      .iconic-card {
+        margin-bottom: 4px;
+      }
+    }
+
+    @media (max-width: 576px) {
+      .hero {
+        padding: 115px 0 65px;
+      }
+
+      .hero-photo-wrap,
+      .hero-photo {
+        width: 120px;
+        height: 120px;
+      }
+
+      .photo-status {
+        left: 68px;
+        font-size: .52rem;
+      }
+
+      .hero-btn {
+        flex-direction: column;
+      }
+
+      .hero-btn .btn {
+        width: 100%;
+      }
+
+      .developer-window {
+        border-radius: 18px;
+      }
+
+      .code-preview {
+        padding: 18px;
+        font-size: .58rem;
+        line-height: 1.9;
+      }
+
+      .code-indent {
+        padding-left: 10px;
+      }
+
+      .stats .stat {
+        padding: 14px 3px;
+      }
+
+      .stat h3 {
+        font-size: 1.2rem;
+      }
+
+      .stat p {
+        font-size: .48rem;
+      }
+
+      .skills-grid {
+        grid-template-columns: repeat(2,1fr);
+        gap: 10px;
+      }
+
+      .skill-card {
+        padding: 23px 8px;
+      }
+
+      .skill-card i {
+        font-size: 2rem;
+      }
+
+      .skill-card h4 {
+        font-size: .8rem;
+      }
+
+      .what-grid,
+      .hire-grid,
+      .contact-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .project-desc {
+        min-height: auto;
+      }
+
+      .btn-stack,
+      .iconic-btn-group {
+        flex-direction: column;
+      }
+
+      .btn-custom,
+      .btn-iconic {
+        width: 100%;
+      }
+
+      .footer {
+        text-align: center;
+      }
+
+      .footer-links,
+      .social-icons {
+        justify-content: center;
+      }
+    }
+  </style>
 </head>
+
 <body>
 
-  <!-- NAVBAR -->
-   <!-- NAVBAR -->
+<!-- NAVBAR -->
 <nav class="navbar fixed-top navbar-glass">
   <div class="container d-flex align-items-center justify-content-between">
 
-    <!-- BRAND -->
     <a class="navbar-brand" href="#home">
       <span class="brand-dot"></span>
       Ohin
     </a>
 
-    <!-- DESKTOP MENU -->
     <ul class="desktop-nav d-none d-lg-flex">
-      
-      
       <li><a href="#about" class="nav-link">About</a></li>
       <li><a href="#skills" class="nav-link">Skills</a></li>
-      <li><a href="#projects" class="nav-link">Projects</a></li>
+      <li><a href="#projects-iconic" class="nav-link">Projects</a></li>
       <li><a href="#education" class="nav-link">Education</a></li>
-      <li><a class="btn btn-outline-light" href="#contact">Contact</a></li>
+      <li>
+        <a class="btn btn-outline-light" href="#contact">Contact</a>
+      </li>
     </ul>
 
-    <!-- MOBILE MENU BUTTON -->
-    <button class="btn btn-outline-light d-lg-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasMenu">
+    <button
+      class="btn btn-outline-light d-lg-none"
+      type="button"
+      data-bs-toggle="offcanvas"
+      data-bs-target="#offcanvasMenu"
+    >
       <i class="bi bi-list"></i>
     </button>
+
   </div>
 </nav>
 
-<!-- OFFCANVAS MENU (Right Side) -->
-<div class="offcanvas offcanvas-end offcanvas-glass" tabindex="-1" id="offcanvasMenu">
+<!-- MOBILE MENU -->
+<div
+  class="offcanvas offcanvas-end offcanvas-glass"
+  tabindex="-1"
+  id="offcanvasMenu"
+>
   <div class="offcanvas-header">
-    <h5 class="offcanvas-title">Menu</h5>
-    <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas"></button>
+    <h5 class="offcanvas-title">Ohin Portfolio</h5>
+
+    <button
+      type="button"
+      class="btn-close btn-close-white"
+      data-bs-dismiss="offcanvas"
+    ></button>
   </div>
 
   <div class="offcanvas-body">
     <ul class="offcanvas-nav">
-      <li><a class="offcanvas-link" href="#about"><i class="bi bi-person-circle"></i> About</a></li>
-      <li><a class="offcanvas-link" href="#skills"><i class="bi bi-stars"></i> Skills</a></li>
-      <li><a class="offcanvas-link" href="#projects"><i class="bi bi-grid-3x3-gap-fill"></i> Projects</a></li>
-      <li><a class="offcanvas-link" href="#education"><i class="bi bi-mortarboard-fill"></i> Education</a></li>
-      <li><a class="offcanvas-link btn btn-outline-light w-100 mt-3" href="#contact">
-        <i class="bi bi-chat-dots-fill"></i> Contact
-      </a></li>
+
+      <li>
+        <a class="offcanvas-link" href="#about">
+          <i class="bi bi-person-circle"></i>
+          About
+        </a>
+      </li>
+
+      <li>
+        <a class="offcanvas-link" href="#skills">
+          <i class="bi bi-stars"></i>
+          Skills
+        </a>
+      </li>
+
+      <li>
+        <a class="offcanvas-link" href="#projects-iconic">
+          <i class="bi bi-grid-3x3-gap-fill"></i>
+          Projects
+        </a>
+      </li>
+
+      <li>
+        <a class="offcanvas-link" href="#education">
+          <i class="bi bi-mortarboard-fill"></i>
+          Education
+        </a>
+      </li>
+
+      <li>
+        <a class="offcanvas-link" href="#what-i-do">
+          <i class="bi bi-lightbulb-fill"></i>
+          What I Do
+        </a>
+      </li>
+
+      <li>
+        <a class="offcanvas-link" href="#contact">
+          <i class="bi bi-chat-dots-fill"></i>
+          Contact
+        </a>
+      </li>
+
     </ul>
   </div>
 </div>
 
 
-  <!-- HERO -->
-   
+<!-- HERO -->
 <header class="hero" id="home">
+
   <div class="container hero-content">
-    <div class="hero-left">
-      <h1 class="title mt-5">
-        Hi, I'm <span class="highlight">Nur Foisal Ohin</span>
-      </h1>
-      <p class="subtitle">
-        I build <span class="gradient-text">modern</span> and <span class="gradient-text">interactive</span> web apps.
-      </p>
 
+    <div class="row align-items-center g-5">
 
+      <div class="col-lg-7">
 
+        <div class="hero-left">
 
-      
-      <div class="typewriter-box">
-        <img src="OHINFV.jpg" class="type-img" alt="Ohin">
-        <div class="typewriter">
-          <span id="typed1"></span>
-        </div>
-      </div>
-    </div>
+          <div class="hero-photo-wrap">
+            <div class="hero-photo-glow"></div>
 
-    <div class="hero-right">
-      <div class="card-glass">
-        <div class="card-top">
-          <span class="dot dot-red"></span>
-          <span class="dot dot-yellow"></span>
-          <span class="dot dot-green"></span>
-        </div>
+            <img
+              src="OHINFV.jpg"
+              class="hero-photo"
+              alt="Nur Foisal Ohin"
+            >
 
-        <div class="card-body">
-          <h4>Featured</h4>
-          <p>
-            I am a • <span id="typed2"></span>
+            <span class="photo-status">
+              <span></span>
+              Available for opportunities
+            </span>
+          </div>
+
+          <div class="hero-eyebrow">
+            <i class="bi bi-code-slash"></i>
+            Full-Stack Web Developer
+          </div>
+
+          <h1 class="title">
+            Hi, I'm
+            <span class="highlight">Nur Foisal Ohin</span>
+          </h1>
+
+          <p class="subtitle">
+            I build
+            <span class="gradient-text">modern</span>,
+            <span class="gradient-text">responsive</span>
+            websites, web applications and custom business management systems.
           </p>
 
-          <div class="stats">
-            <div class="stat">
-              <h3>20+</h3>
-              <p>| Projects |</p>
-            </div>
-            <div class="stat">
-              <h3>1+</h3>
-              <p>| Years |</p>
-            </div>
-            <div class="stat">
-              <h3>10+</h3>
-              <p>| Skills |</p>
+          <div class="typewriter-box">
+            <img
+              src="OHINFV.jpg"
+              class="type-img"
+              alt="Ohin"
+            >
+
+            <div>
+              <span id="typed1"></span>
+              <span class="cursor">|</span>
             </div>
           </div>
+
+          <div class="hero-btn">
+
+            <a class="btn btn-primary" href="#projects-iconic">
+              <i class="bi bi-grid-3x3-gap-fill me-1"></i>
+              Explore My Work
+            </a>
+
+            <a
+              class="btn btn-outline-light"
+              href="cv.ohin.pdf"
+              download
+            >
+              <i class="bi bi-file-earmark-arrow-down me-1"></i>
+              Download CV
+            </a>
+
+          </div>
+
+          <div class="hero-socials">
+
+            <a
+              href="https://github.com/ohin03"
+              target="_blank"
+              aria-label="GitHub"
+            >
+              <i class="bi bi-github"></i>
+            </a>
+
+            <a
+              href="https://www.linkedin.com/in/nur-foisal-ohin"
+              target="_blank"
+              aria-label="LinkedIn"
+            >
+              <i class="bi bi-linkedin"></i>
+            </a>
+
+            <a
+              href="mailto:ohinnurfoisal@gmail.com"
+              aria-label="Email"
+            >
+              <i class="bi bi-envelope-fill"></i>
+            </a>
+
+            <a
+              href="https://wa.me/8801971676314"
+              target="_blank"
+              aria-label="WhatsApp"
+            >
+              <i class="bi bi-whatsapp"></i>
+            </a>
+
+          </div>
+
         </div>
+
       </div>
 
-      <div class="orbit">
-        <div class="circle c1"></div>
-        <div class="circle c2"></div>
-        <div class="circle c3"></div>
-        <div class="center"></div>
+
+      <!-- HERO CODE WINDOW -->
+      <div class="col-lg-5">
+
+        <div class="developer-window">
+
+          <div class="window-header">
+
+            <div class="window-dots">
+              <span class="dot dot-red"></span>
+              <span class="dot dot-yellow"></span>
+              <span class="dot dot-green"></span>
+            </div>
+
+            <span class="window-title">
+              nur-foisal-ohin.dev
+            </span>
+
+            <span class="live-indicator">
+              <span></span>
+              LIVE
+            </span>
+
+          </div>
+
+          <div class="code-preview">
+
+            <div>
+              <span class="code-purple">const</span>
+              <span class="code-blue">developer</span>
+              =
+              <span class="code-yellow">{</span>
+            </div>
+
+            <div class="code-indent">
+              <span class="code-blue">name</span>:
+              <span class="code-green">"Nur Foisal Ohin"</span>,
+            </div>
+
+            <div class="code-indent">
+              <span class="code-blue">role</span>:
+              <span class="code-green">"Full-Stack Developer"</span>,
+            </div>
+
+            <div class="code-indent">
+              <span class="code-blue">frontend</span>:
+              <span class="code-green">"React / Next.js / TypeScript"</span>,
+            </div>
+
+            <div class="code-indent">
+              <span class="code-blue">backend</span>:
+              <span class="code-green">"Node / Express / MongoDB"</span>,
+            </div>
+
+            <div class="code-indent">
+              <span class="code-blue">focus</span>:
+              <span class="code-green">"Business Solutions"</span>
+            </div>
+
+            <div>
+              <span class="code-yellow">}</span>
+            </div>
+
+          </div>
+
+          <div class="stats">
+
+            <div class="stat">
+              <h3>20<span>+</span></h3>
+              <p>Projects</p>
+            </div>
+
+            <div class="stat">
+              <h3>1<span>+</span></h3>
+              <p>Years</p>
+            </div>
+
+            <div class="stat">
+              <h3>10<span>+</span></h3>
+              <p>Skills</p>
+            </div>
+
+          </div>
+
+        </div>
+
       </div>
+
     </div>
-
-<div class="hero-btn">
-        <a class="btn btn-primary" href="#projects">See Projects</a>
-        <a class="btn btn-outline-light" href="cv.ohin.pdf" download>Download CV</a>
-      </div>
-
-
 
   </div>
+
 </header>
 
-<script>
-  const words = ["Web Developer", "Frontend Developer", "MERN Developer", "Full Stack Developer"];
-  let i = 0, j = 0, isDeleting = false;
 
-  function typeEffect() {
-    const current = words[i];
-    const typed1 = document.getElementById("typed1");
-    const typed2 = document.getElementById("typed2");
+<!-- ABOUT -->
+<section id="about" class="section">
 
-    if (!isDeleting) {
-      const text = current.slice(0, j++);
-      typed1.textContent = text;
-      typed2.textContent = text;
-
-      if (j > current.length) {
-        isDeleting = true;
-        setTimeout(typeEffect, 800);
-        return;
-      }
-    } else {
-      const text = current.slice(0, j--);
-      typed1.textContent = text;
-      typed2.textContent = text;
-
-      if (j === 0) {
-        isDeleting = false;
-        i = (i + 1) % words.length;
-      }
-    }
-
-    setTimeout(typeEffect, isDeleting ? 60 : 120);
-  }
-
-  typeEffect();
-
-
-
-</script>
-
-
-
-
-  <!-- ABOUT -->
-  <section id="about" class="section">
-
-    <div class="container">
-    <!-- About -->
-    <section id="about" class="bg-info-subtle p-4 rounded ">
-      <h3 class="text-danger">👨‍🎓 About Me</h3>
-      <p class="text-black">
-        I'm <b>Nur Foisal Ohin</b>, a Computer Science & Engineering student (6th semester).<br>
-        I love building modern and responsive web applications using
-        <b>HTML, CSS, JavaScript, Bootstrap, React.js, Node.js, Express.js, MongoDB</b>, and
-        <b>Authentication systems</b>.<br>
-        I am currently working as a <b>Full-Stack Web Developer</b>, constantly improving my skills and building real-world projects.<br>
-        My long-term goal is to become a highly skilled and professional <b>Full-Stack Web Developer</b>.
-      </p>
-      
-    </section>
-
-    <!-- Education -->
-    <section id="education"  class="bg-primary-subtle p-4 rounded mt-4">
-      <h3 class="text-black ">🎓 Education</h3>
-      <ul class="text-dark-emphasis">
-        <li>B.Sc. in Computer Science & Engineering (Ongoing)</li>
-        <li>5th Semester, Feni University</li>
-      </ul>
-      </div>
-    </section>
-
-  </section>
-
-
-  <!--SKILLS-->
-
-<!-- Required for Icons & Fonts -->
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;500;800&display=swap" rel="stylesheet">
-
-<style>
-    :root {
-        --p-glow: #00e5ff;
-        --s-glow: #7000ff;
-        --card-bg: rgba(255, 255, 255, 0.02);
-    }
-
-    #skills {
-        padding: 100px 20px;
-        background-color: #050505;
-        font-family: 'Plus Jakarta Sans', sans-serif;
-        color: #fff;
-        scroll-margin-top: 90px;
-    }
-
-    .skills-header {
-        text-align: center;
-        margin-bottom: 60px;
-    }
-
-    .skills-header p {
-        color: var(--p-glow);
-        text-transform: uppercase;
-        letter-spacing: 5px;
-        font-size: 0.8rem;
-        font-weight: 800;
-        margin-bottom: 10px;
-    }
-
-    .skills-header h2 {
-        font-size: clamp(1.8rem, 5vw, 3rem);
-        font-weight: 800;
-        background: linear-gradient(to bottom, #fff, #666);
-        -webkit-background-clip: text;
-        -webkit-text-fill-color: transparent;
-    }
-
-    .skills-grid {
-        display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
-        gap: 20px;
-        max-width: 1200px;
-        margin: 0 auto;
-    }
-
-    .skill-card {
-        background: var(--card-bg);
-        border: 1px solid rgba(255, 255, 255, 0.05);
-        border-radius: 25px;
-        padding: 35px 20px;
-        text-align: center;
-        transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-        position: relative;
-        backdrop-filter: blur(12px);
-        animation: floating 5s ease-in-out infinite;
-    }
-
-    .skill-card:nth-child(even) { animation-delay: 1.5s; }
-
-    .skill-card:hover {
-        transform: translateY(-12px) scale(1.03);
-        border-color: var(--p-glow);
-        background: rgba(0, 229, 255, 0.04);
-        box-shadow: 0 20px 40px rgba(0,0,0,0.4);
-    }
-
-    .skill-card i {
-        font-size: 2.8rem;
-        margin-bottom: 18px;
-        color: #555;
-        transition: 0.3s;
-    }
-
-    .skill-card:hover i {
-        color: var(--p-glow);
-        transform: scale(1.15) rotate(5deg);
-        filter: drop-shadow(0 0 8px var(--p-glow));
-    }
-
-    .skill-card h4 {
-        font-size: 1rem;
-        font-weight: 700;
-        margin-bottom: 6px;
-        letter-spacing: 0.5px;
-    }
-
-    .skill-card span {
-        font-size: 0.6rem;
-        color: #777;
-        text-transform: uppercase;
-        font-weight: 600;
-        letter-spacing: 1px;
-    }
-
-    @keyframes floating {
-        0%, 100% { transform: translateY(0); }
-        50% { transform: translateY(-10px); }
-    }
-
-    /* Mobile Responsive Logic */
-    @media (max-width: 600px) {
-        .skills-grid {
-            grid-template-columns: repeat(2, 1fr); /* Mobile-e 2ti column */
-            gap: 12px;
-        }
-        .skill-card { padding: 25px 10px; }
-        .skill-card i { font-size: 2.2rem; }
-        .skill-card h4 { font-size: 0.9rem; }
-    }
-</style>
-
-<section id="skills">
-    <div class="skills-header">
-        <p>Expertise</p>
-        <h2>I HAVE SKILLS IN</h2>
-    </div>
-
-    <div class="skills-grid">
-        <!-- HTML -->
-        <div class="skill-card">
-            <i class="fa-brands fa-html5"></i>
-            <h4>HTML5</h4>
-            <span>Structure</span>
-        </div>
-
-        <!-- CSS -->
-        <div class="skill-card">
-            <i class="fa-brands fa-css3-alt"></i>
-            <h4>CSS3</h4>
-            <span>Styling</span>
-        </div>
-
-        <!-- JavaScript -->
-        <div class="skill-card">
-            <i class="fa-brands fa-js"></i>
-            <h4>JavaScript</h4>
-            <span>Logic</span>
-        </div>
-
-        <!-- Bootstrap -->
-        <div class="skill-card">
-            <i class="fa-brands fa-bootstrap"></i>
-            <h4>Bootstrap</h4>
-            <span>UI Framework</span>
-        </div>
-
-        <!-- React -->
-        <div class="skill-card">
-            <i class="fa-brands fa-react"></i>
-            <h4>React.js</h4>
-            <span>Frontend</span>
-        </div>
-
-        <!-- Node -->
-        <div class="skill-card">
-            <i class="fa-brands fa-node-js"></i>
-            <h4>Node.js</h4>
-            <span>Runtime</span>
-        </div>
-
-        <!-- Express -->
-        <div class="skill-card">
-            <i class="fa-solid fa-server"></i>
-            <h4>Express.js</h4>
-            <span>Backend</span>
-        </div>
-
-        <!-- MongoDB -->
-        <div class="skill-card">
-            <i class="fa-solid fa-database"></i>
-            <h4>MongoDB</h4>
-            <span>Database</span>
-        </div>
-
-        <!-- Auth -->
-        <div class="skill-card">
-            <i class="fa-solid fa-user-shield"></i>
-            <h4>Authentication</h4>
-            <span>JWT & Bcrypt</span>
-        </div>
-
-        <!-- Git -->
-        <div class="skill-card">
-            <i class="fa-brands fa-git-alt"></i>
-            <h4>Git</h4>
-            <span>Version Control</span>
-        </div>
-
-        <!-- GitHub -->
-        <div class="skill-card">
-            <i class="fa-brands fa-github"></i>
-            <h4>GitHub</h4>
-            <span>Deployment</span>
-        </div>
-
-        <!-- Vercel/Hosting -->
-        <div class="skill-card">
-            <i class="fa-solid fa-cloud-arrow-up"></i>
-            <h4>Production</h4>
-            <span>Vercel / Hosting</span>
-        </div>
-    </div>
-</section>
-
-  <!-- PROJECTS -->
- <!-- Required: Bootstrap Icons & Google Fonts -->
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
-<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;800&display=swap" rel="stylesheet">
-
-<style>
-    #projects-iconic {
-        background-color: #030303;
-        font-family: 'Plus Jakarta Sans', sans-serif;
-        padding: 80px 0;
-        color: #fff;
-    }
-
-    .fs-section-title {
-        font-weight: 800;
-        font-size: 2.5rem;
-        text-align: center;
-        margin-bottom: 50px;
-        background: linear-gradient(90deg, #fff, #00e5ff);
-        -webkit-background-clip: text;
-        -webkit-text-fill-color: transparent;
-    }
-
-    /* Iconic Card Style */
-    .iconic-card {
-        background: rgba(255, 255, 255, 0.02);
-        border: 1px solid rgba(255, 255, 255, 0.07);
-        border-radius: 30px;
-        padding: 35px 25px;
-        height: 100%;
-        position: relative;
-        overflow: hidden; /* Icon ke card-er bhetor rakhar jonno */
-        transition: all 0.4s ease;
-        display: flex;
-        flex-direction: column;
-        z-index: 1;
-    }
-
-    .iconic-card:hover {
-        background: rgba(255, 255, 255, 0.04);
-        border-color: #00e5ff;
-        transform: translateY(-10px);
-    }
-
-    /* Floating Background Icon */
-    .bg-icon {
-        position: absolute;
-        right: -10px;
-        top: -10px;
-        font-size: 6rem;
-        color: rgba(255, 255, 255, 0.03); /* Ekdom halka color */
-        z-index: -1;
-        transition: 0.5s;
-        transform: rotate(15deg);
-    }
-
-    .iconic-card:hover .bg-icon {
-        color: rgba(0, 229, 255, 0.1);
-        transform: rotate(0deg) scale(1.1);
-    }
-
-    /* Content Styling */
-    .card-label {
-        font-size: 0.7rem;
-        font-weight: 800;
-        color: #00e5ff;
-        text-transform: uppercase;
-        letter-spacing: 1.5px;
-        margin-bottom: 12px;
-        display: block;
-    }
-
-    .card-title-fs {
-        font-weight: 800;
-        font-size: 1.3rem;
-        margin-bottom: 15px;
-        color: #ffffff;
-    }
-
-    .card-desc-fs {
-        font-size: 0.85rem;
-        color: #999;
-        line-height: 1.6;
-        margin-bottom: 25px;
-    }
-
-    /* Clickable Buttons */
-    .iconic-btn-group {
-        display: flex;
-        gap: 10px;
-        margin-top: auto;
-        position: relative;
-        z-index: 5; /* Ensure clickability */
-    }
-
-    .btn-iconic {
-        flex: 1;
-        padding: 12px 5px;
-        border-radius: 15px;
-        font-size: 0.7rem;
-        font-weight: 700;
-        text-decoration: none !important;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        gap: 6px;
-        transition: 0.3s;
-    }
-
-    .btn-iconic-git {
-        background: rgba(255, 255, 255, 0.05);
-        color: #fff;
-        border: 1px solid rgba(255, 255, 255, 0.1);
-    }
-
-    .btn-iconic-git:hover {
-        background: #fff;
-        color: #000;
-    }
-
-    .btn-iconic-live {
-        background: #00e5ff;
-        color: #000;
-        box-shadow: 0 4px 15px rgba(0, 229, 255, 0.2);
-    }
-
-    .btn-iconic-live:hover {
-        background: #fff;
-        box-shadow: 0 0 20px #00e5ff;
-    }
-
-    /* Mobile Responsive */
-    @media (max-width: 576px) {
-        .col-6 { padding: 8px !important; }
-        .iconic-card { padding: 25px 15px; border-radius: 20px; }
-        .bg-icon { font-size: 4rem; }
-        .card-title-fs { font-size: 1rem; }
-        .btn-iconic { font-size: 0.6rem; padding: 10px 4px; }
-    }
-</style>
-
-<section id="projects-iconic">
-    <div class="container">
-        <h2 class="fs-section-title">Full-Stack Projects</h2>
-
-        <div class="row g-4">
-            <!-- Project 0: Pharmacy -->
-            <div class="col-12 col-md-3">
-                <div class="iconic-card">
-                    <i class="bi bi-capsule bg-icon"></i>
-                    <span class="card-label">ERP System</span>
-                    <h3 class="card-title-fs">Pharmacy Management</h3>
-                    <p class="card-desc-fs">Advanced management for stocks, sales, and accounts.</p>
-                    <div class="iconic-btn-group">
-                        <a href="https://github.com/ohin03/ph-managment" target="_blank" class="btn-iconic btn-iconic-git">
-                            <i class="bi bi-github"></i> GitHub
-                        </a>
-                        <a href="https://ph-managment-frontend.onrender.com/" target="_blank" class="btn-iconic btn-iconic-live">
-                            <i class="bi bi-cpu"></i> LIVE
-                        </a>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Project 1: E-commerce -->
-            <div class="col-12 col-md-3">
-                <div class="iconic-card">
-                    <i class="bi bi-cart4 bg-icon"></i>
-                    <span class="card-label">E-Commerce</span>
-                    <h3 class="card-title-fs">Emad Telecom</h3>
-                    <p class="card-desc-fs">Full-featured shop with MERN stack & admin dashboard.</p>
-                    <div class="iconic-btn-group">
-                        <a href="https://github.com/ohin03/emad-telecom-feni" target="_blank" class="btn-iconic btn-iconic-git">
-                            <i class="bi bi-github"></i> GitHub
-                        </a>
-                        <a href="https://emad-telecom-feni-8.onrender.com/" target="_blank" class="btn-iconic btn-iconic-live">
-                            <i class="bi bi-cpu"></i> LIVE
-                        </a>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Project 2: Blood Donation -->
-            <div class="col-12 col-md-3">
-                <div class="iconic-card">
-                    <i class="bi bi-droplet-fill bg-icon"></i>
-                    <span class="card-label">Health Tech</span>
-                    <h3 class="card-title-fs">Blood Donation</h3>
-                    <p class="card-desc-fs">Donor tracking and management portal for urgent needs.</p>
-                    <div class="iconic-btn-group">
-                        <a href="https://github.com/ohin03/mohipal-donater-group" target="_blank" class="btn-iconic btn-iconic-git">
-                            <i class="bi bi-github"></i> GitHub
-                        </a>
-                        <a href="https://mohipal-donater-group.vercel.app/" target="_blank" class="btn-iconic btn-iconic-live">
-                            <i class="bi bi-cpu"></i> LIVE
-                        </a>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Project 3: Tournament -->
-            <div class="col-12 col-md-3">
-                <div class="iconic-card">
-                    <i class="bi bi-trophy bg-icon"></i>
-                    <span class="card-label">Gaming App</span>
-                    <h3 class="card-title-fs">Tournament website</h3>
-                    <p class="card-desc-fs">Real-time tournament updates and team analytics dashboard.</p>
-                    <div class="iconic-btn-group">
-                        <a href="https://github.com/ohin03/chowdhury-badiy-tournament" target="_blank" class="btn-iconic btn-iconic-git">
-                            <i class="bi bi-github"></i> GitHub
-                        </a>
-                        <a href="https://chowdhury-badiy-tournament-2.onrender.com/" target="_blank" class="btn-iconic btn-iconic-live">
-                            <i class="bi bi-cpu"></i> LIVE
-                        </a>
-                    </div>
-                </div>
-            </div>
-
-        </div>
-    </div>
-</section>
-
- 
-    <!-- Frontend Projects -->
-<!-- Bootstrap Icons & Google Fonts -->
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
-<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;800&display=swap" rel="stylesheet">
-
-<style>
-    #projects {
-        background-color: #080808;
-        font-family: 'Plus Jakarta Sans', sans-serif;
-        color: #fff;
-        padding: 60px 15px !important;
-    }
-
-    .projects-title {
-        font-weight: 800;
-        font-size: 2rem;
-        margin-bottom: 40px;
-        text-align: center;
-        background: linear-gradient(135deg, #fff 0%, #00e5ff 100%);
-        -webkit-background-clip: text;
-        -webkit-text-fill-color: transparent;
-    }
-
-    /* Professional Card Design */
-    .pro-card {
-        background: rgba(255, 255, 255, 0.03);
-        border: 1px solid rgba(255, 255, 255, 0.08);
-        border-radius: 20px;
-        padding: 25px 20px;
-        height: 100%;
-        transition: all 0.4s ease-in-out;
-        display: flex;
-        flex-direction: column;
-        justify-content: space-between;
-        position: relative;
-    }
-
-    .pro-card:hover {
-        background: rgba(255, 255, 255, 0.06);
-        border-color: #00e5ff;
-        transform: translateY(-8px);
-        box-shadow: 0 10px 30px rgba(0, 229, 255, 0.1);
-    }
-
-    .icon-circle {
-        width: 50px;
-        height: 50px;
-        background: rgba(0, 229, 255, 0.1);
-        color: #00e5ff;
-        border-radius: 12px;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        font-size: 1.4rem;
-        margin-bottom: 15px;
-    }
-
-    .card-title-text {
-        font-weight: 700;
-        font-size: 1.1rem;
-        color: #f0f0f0;
-        margin-bottom: 25px !important;
-        line-height: 1.4;
-    }
-
-    /* Button Area - 100% Clickable */
-    .btn-stack {
-        display: flex;
-        gap: 10px;
-        margin-top: auto; /* Push buttons to bottom */
-    }
-
-    .btn-custom {
-        flex: 1;
-        padding: 10px 5px;
-        border-radius: 10px;
-        font-size: 0.75rem;
-        font-weight: 700;
-        text-decoration: none !important;
-        text-align: center;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        gap: 6px;
-        transition: 0.3s;
-        border: none;
-    }
-
-    .btn-git {
-        background: #1a1a1a;
-        color: #fff;
-    }
-
-    .btn-git:hover {
-        background: #333;
-    }
-
-    .btn-demo {
-        background: #00e5ff;
-        color: #000;
-    }
-
-    .btn-demo:hover {
-        background: #fff;
-        box-shadow: 0 0 15px #00e5ff;
-    }
-
-    /* Responsive Grid for Mobile (2 Columns) */
-    @media (max-width: 576px) {
-        .col-6 {
-            padding: 8px !important;
-        }
-        .pro-card {
-            padding: 20px 12px;
-        }
-        .card-title-text {
-            font-size: 0.9rem;
-            margin-bottom: 15px !important;
-        }
-        .btn-custom {
-            font-size: 0.65rem;
-            padding: 8px 4px;
-        }
-        .icon-circle {
-            width: 40px;
-            height: 40px;
-            font-size: 1.1rem;
-        }
-    }
-</style>
-
-<section id="projects">
-    <div class="container">
-        <h3 class="projects-title">📂 Front-End Projects</h3>
-        
-        <div class="row g-3">
-            <!-- Card 1 -->
-            <div class="col-6 col-md-4">
-                <div class="pro-card">
-                    <div class="icon-circle"><i class="bi bi-laptop"></i></div>
-                    <h5 class="card-title-text">Car Landing Page</h5>
-                    <div class="btn-stack">
-                        <a href="https://github.com/ohin03/API.git" target="_blank" class="btn-custom btn-git">
-                            <i class="bi bi-github"></i> Code
-                        </a>
-                        <a href="https://car-website-221.netlify.app/" target="_blank" class="btn-custom btn-demo">
-                            <i class="bi bi-display"></i> Live
-                        </a>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Card 2 -->
-            <div class="col-6 col-md-4">
-                <div class="pro-card">
-                    <div class="icon-circle"><i class="bi bi-stack"></i></div>
-                    <h5 class="card-title-text">Next.js Web App</h5>
-                    <div class="btn-stack">
-                        <a href="https://github.com/ohin03/emad_telecom.git" target="_blank" class="btn-custom btn-git">
-                            <i class="bi bi-github"></i> Code
-                        </a>
-                        <a href="https://emad-telecom.vercel.app" target="_blank" class="btn-custom btn-demo">
-                            <i class="bi bi-display"></i> Live
-                        </a>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Card 3 -->
-            <div class="col-6 col-md-4">
-                <div class="pro-card">
-                    <div class="icon-circle"><i class="bi bi-patch-question"></i></div>
-                    <h5 class="card-title-text">Quiz Application</h5>
-                    <div class="btn-stack">
-                        <a href="https://github.com/ohin03/learn.git" target="_blank" class="btn-custom btn-git">
-                            <i class="bi bi-github"></i> Code
-                        </a>
-                        <a href="https://quiz-app-2025-normal.netlify.app/" target="_blank" class="btn-custom btn-demo">
-                            <i class="bi bi-display"></i> Live
-                        </a>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Card 4 -->
-            <div class="col-6 col-md-4">
-                <div class="pro-card">
-                    <div class="icon-circle"><i class="bi bi-controller"></i></div>
-                    <h5 class="card-title-text">Tic Tac Toe Game</h5>
-                    <div class="btn-stack">
-                        <a href="https://github.com/ohin03/TIC-TOC-TOE-GAMES.git" target="_blank" class="btn-custom btn-git">
-                            <i class="bi bi-github"></i> Code
-                        </a>
-                        <a href="https://tic-toc-toe-2025.netlify.app/" target="_blank" class="btn-custom btn-demo">
-                            <i class="bi bi-display"></i> Live
-                        </a>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Card 5 -->
-            <div class="col-6 col-md-4">
-                <div class="pro-card">
-                    <div class="icon-circle"><i class="bi bi-calculator"></i></div>
-                    <h5 class="card-title-text">Smart Calculator</h5>
-                    <div class="btn-stack">
-                        <a href="https://github.com/ohin03/calculator.git" target="_blank" class="btn-custom btn-git">
-                            <i class="bi bi-github"></i> Code
-                        </a>
-                        <a href="https://calculator-prtc-2025.netlify.app/" target="_blank" class="btn-custom btn-demo">
-                            <i class="bi bi-display"></i> Live
-                        </a>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Card 6 -->
-            <div class="col-6 col-md-4">
-                <div class="pro-card">
-                    <div class="icon-circle"><i class="bi bi-shop-window"></i></div>
-                    <h5 class="card-title-text">Shop Landing Page</h5>
-                    <div class="btn-stack">
-                        <a href="https://github.com/ohin03/poject2.git" target="_blank" class="btn-custom btn-git">
-                            <i class="bi bi-github"></i> Code
-                        </a>
-                        <a href="https://mobile-shop-landing-page-2025.netlify.app/" target="_blank" class="btn-custom btn-demo">
-                            <i class="bi bi-display"></i> Live
-                        </a>
-                    </div>
-                </div>
-            </div>
-
-        </div>
-    </div>
-</section>
-<!--What I do-->
-<!-- =========================
-   WHAT I DO (EYE-CATCHING)
-========================= -->
-<section id="what-i-do" class="section">
   <div class="container">
-    <h2 class="section-title">
-      <span class="title-badge bg-info text-black">
-        <i class="bi bi-lightbulb-fill"></i> What I Do
-      </span>
-    </h2>
+
+    <div class="section-heading">
+
+      <div class="section-kicker">
+        About Me
+      </div>
+
+      <h2 class="section-title">
+        Building With Purpose
+      </h2>
+
+      <p class="section-description">
+        I focus on building useful, responsive and maintainable web solutions.
+      </p>
+
+    </div>
+
+    <div class="row g-4">
+
+      <div class="col-lg-8">
+
+        <div class="about-card">
+
+          <h3>
+            👨‍💻 Full-Stack Web Developer
+          </h3>
+
+          <p>
+            I'm <b>Nur Foisal Ohin</b>, a Computer Science & Engineering
+            student at Feni University.
+            I love building modern and responsive web applications using
+            <b>HTML, CSS, JavaScript, Bootstrap, React.js, Next.js,
+            TypeScript, Node.js, Express.js, MongoDB</b> and
+            authentication systems.
+          </p>
+
+          <p class="mt-3">
+            I am currently working as a
+            <b>Full-Stack Web Developer</b>,
+            constantly improving my skills and building real-world projects.
+          </p>
+
+          <p class="mt-3">
+            My focus is creating websites, web applications and
+            custom business management systems that are useful,
+            responsive and easy to maintain.
+          </p>
+
+        </div>
+
+      </div>
+
+      <div class="col-lg-4" id="education">
+
+        <div class="education-card">
+
+          <i class="bi bi-mortarboard-fill"></i>
+
+          <h4>Education</h4>
+
+          <p>
+            B.Sc. in Computer Science & Engineering
+          </p>
+
+          <ul>
+            <li>Feni University</li>
+            <li>6th Semester</li>
+            <li>CGPA: 3.40</li>
+          </ul>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </div>
+
+</section>
+
+
+<!-- SKILLS -->
+<section id="skills">
+
+  <div class="skills-header">
+
+    <p>Expertise</p>
+
+    <h2>I HAVE SKILLS IN</h2>
+
+  </div>
+
+  <div class="skills-grid">
+
+    <div class="skill-card">
+      <i class="fa-brands fa-html5"></i>
+      <h4>HTML5</h4>
+      <span>Structure</span>
+    </div>
+
+    <div class="skill-card">
+      <i class="fa-brands fa-css3-alt"></i>
+      <h4>CSS3</h4>
+      <span>Styling</span>
+    </div>
+
+    <div class="skill-card">
+      <i class="fa-brands fa-js"></i>
+      <h4>JavaScript</h4>
+      <span>Logic</span>
+    </div>
+
+    <div class="skill-card">
+      <i class="fa-brands fa-bootstrap"></i>
+      <h4>Bootstrap</h4>
+      <span>UI Framework</span>
+    </div>
+
+    <div class="skill-card">
+      <i class="fa-brands fa-react"></i>
+      <h4>React.js</h4>
+      <span>Frontend</span>
+    </div>
+
+    <div class="skill-card">
+      <i class="fa-solid fa-code"></i>
+      <h4>TypeScript</h4>
+      <span>Typed JavaScript</span>
+    </div>
+
+    <div class="skill-card">
+      <i class="fa-solid fa-layer-group"></i>
+      <h4>Next.js</h4>
+      <span>React Framework</span>
+    </div>
+
+    <div class="skill-card">
+      <i class="fa-brands fa-node-js"></i>
+      <h4>Node.js</h4>
+      <span>Runtime</span>
+    </div>
+
+    <div class="skill-card">
+      <i class="fa-solid fa-server"></i>
+      <h4>Express.js</h4>
+      <span>Backend</span>
+    </div>
+
+    <div class="skill-card">
+      <i class="fa-solid fa-database"></i>
+      <h4>MongoDB</h4>
+      <span>Database</span>
+    </div>
+
+    <div class="skill-card">
+      <i class="fa-solid fa-user-shield"></i>
+      <h4>Authentication</h4>
+      <span>JWT & Bcrypt</span>
+    </div>
+
+    <div class="skill-card">
+      <i class="fa-brands fa-git-alt"></i>
+      <h4>Git</h4>
+      <span>Version Control</span>
+    </div>
+
+    <div class="skill-card">
+      <i class="fa-brands fa-github"></i>
+      <h4>GitHub</h4>
+      <span>Collaboration</span>
+    </div>
+
+    <div class="skill-card">
+      <i class="fa-solid fa-cloud-arrow-up"></i>
+      <h4>Deployment</h4>
+      <span>Vercel / Render / Netlify</span>
+    </div>
+
+  </div>
+
+</section>
+
+
+<!-- FULL STACK PROJECTS -->
+<section id="projects-iconic">
+
+  <div class="container">
+
+    <div class="section-heading">
+
+      <div class="section-kicker">
+        Backend + Frontend
+      </div>
+
+      <h2 class="fs-section-title">
+        Full-Stack Projects
+      </h2>
+
+      <p class="section-description">
+        Real-world applications built with frontend,
+        backend, database, authentication and business logic.
+      </p>
+
+    </div>
+
+    <div class="row g-4">
+
+
+      <!-- PHARMACY -->
+      <div class="col-12 col-md-6 col-xl-4">
+
+        <div class="iconic-card">
+
+          <i class="bi bi-capsule bg-icon"></i>
+
+          <span class="card-label">
+            ERP System
+          </span>
+
+          <h3 class="card-title-fs">
+            Pharmacy Management
+          </h3>
+
+          <p class="card-desc-fs">
+            Advanced pharmacy management system for
+            medicines, inventory, purchases, sales,
+            customers, employees and business operations.
+          </p>
+
+          <div class="project-tech">
+            <span>React</span>
+            <span>Node.js</span>
+            <span>Express</span>
+            <span>MongoDB</span>
+            <span>JWT</span>
+          </div>
+
+          <div class="iconic-btn-group">
+
+            <a
+              href="https://github.com/ohin03/ph-managment"
+              target="_blank"
+              class="btn-iconic btn-iconic-git"
+            >
+              <i class="bi bi-github"></i>
+              GitHub
+            </a>
+
+            <a
+              href="https://ph-managment-frontend.onrender.com/"
+              target="_blank"
+              class="btn-iconic btn-iconic-live"
+            >
+              <i class="bi bi-display"></i>
+              LIVE
+            </a>
+
+          </div>
+
+        </div>
+
+      </div>
+
+
+      <!-- EMAD TELECOM -->
+      <div class="col-12 col-md-6 col-xl-4">
+
+        <div class="iconic-card">
+
+          <i class="bi bi-cart4 bg-icon"></i>
+
+          <span class="card-label">
+            E-Commerce
+          </span>
+
+          <h3 class="card-title-fs">
+            Emad Telecom
+          </h3>
+
+          <p class="card-desc-fs">
+            Full-featured e-commerce platform with
+            product management, customer experience,
+            backend APIs and admin dashboard.
+          </p>
+
+          <div class="project-tech">
+            <span>React</span>
+            <span>Node.js</span>
+            <span>Express</span>
+            <span>MongoDB</span>
+            <span>REST API</span>
+          </div>
+
+          <div class="iconic-btn-group">
+
+            <a
+              href="https://github.com/ohin03/emad-telecom-feni"
+              target="_blank"
+              class="btn-iconic btn-iconic-git"
+            >
+              <i class="bi bi-github"></i>
+              GitHub
+            </a>
+
+            <a
+              href="https://emad-telecom-feni-8.onrender.com/"
+              target="_blank"
+              class="btn-iconic btn-iconic-live"
+            >
+              <i class="bi bi-display"></i>
+              LIVE
+            </a>
+
+          </div>
+
+        </div>
+
+      </div>
+
+
+      <!-- BLOOD DONATION -->
+      <div class="col-12 col-md-6 col-xl-4">
+
+        <div class="iconic-card">
+
+          <i class="bi bi-droplet-fill bg-icon"></i>
+
+          <span class="card-label">
+            Health Tech
+          </span>
+
+          <h3 class="card-title-fs">
+            Blood Donation
+          </h3>
+
+          <p class="card-desc-fs">
+            Donor management platform designed to
+            organize donor information and help users
+            find suitable blood donors.
+          </p>
+
+          <div class="project-tech">
+            <span>React</span>
+            <span>Node.js</span>
+            <span>Express</span>
+            <span>MongoDB</span>
+          </div>
+
+          <div class="iconic-btn-group">
+
+            <a
+              href="https://github.com/ohin03/mohipal-donater-group"
+              target="_blank"
+              class="btn-iconic btn-iconic-git"
+            >
+              <i class="bi bi-github"></i>
+              GitHub
+            </a>
+
+            <a
+              href="https://mohipal-donater-group.vercel.app/"
+              target="_blank"
+              class="btn-iconic btn-iconic-live"
+            >
+              <i class="bi bi-display"></i>
+              LIVE
+            </a>
+
+          </div>
+
+        </div>
+
+      </div>
+
+
+      <!-- TOURNAMENT -->
+      <div class="col-12 col-md-6 col-xl-4">
+
+        <div class="iconic-card">
+
+          <i class="bi bi-trophy-fill bg-icon"></i>
+
+          <span class="card-label">
+            Gaming Platform
+          </span>
+
+          <h3 class="card-title-fs">
+            Tournament Website
+          </h3>
+
+          <p class="card-desc-fs">
+            Tournament platform with team information,
+            match updates and organized competition data.
+          </p>
+
+          <div class="project-tech">
+            <span>React</span>
+            <span>Node.js</span>
+            <span>Express</span>
+            <span>MongoDB</span>
+          </div>
+
+          <div class="iconic-btn-group">
+
+            <a
+              href="https://github.com/ohin03/chowdhury-badiy-tournament"
+              target="_blank"
+              class="btn-iconic btn-iconic-git"
+            >
+              <i class="bi bi-github"></i>
+              GitHub
+            </a>
+
+            <a
+              href="https://chowdhury-badiy-tournament-2.onrender.com/"
+              target="_blank"
+              class="btn-iconic btn-iconic-live"
+            >
+              <i class="bi bi-display"></i>
+              LIVE
+            </a>
+
+          </div>
+
+        </div>
+
+      </div>
+
+
+      <!-- PULSE SCREENER -->
+      <div class="col-12 col-md-6 col-xl-4">
+
+        <div class="iconic-card pulse-card">
+
+          <i class="bi bi-graph-up-arrow bg-icon"></i>
+
+          <div class="live-project">
+            <span></span>
+            LIVE PROJECT
+          </div>
+
+          <span class="card-label">
+            Frontend Project
+          </span>
+
+          <h3 class="card-title-fs">
+            Pulse Stock Screener
+          </h3>
+
+          <p class="card-desc-fs">
+            High-performance stock screening dashboard
+            with 5,000+ stocks, advanced filtering,
+            virtualized tables and live-data simulation.
+          </p>
+
+          <div class="project-tech">
+            <span>Next.js</span>
+            <span>TypeScript</span>
+            <span>Zustand</span>
+            <span>TanStack Table</span>
+            <span>Virtualization</span>
+          </div>
+
+          <div class="iconic-btn-group">
+
+            <a
+              href="https://pulse-screener.vercel.app/"
+              target="_blank"
+              class="btn-iconic btn-iconic-live"
+              style="width:100%;"
+            >
+              <i class="bi bi-arrow-up-right"></i>
+              View Live Project
+            </a>
+
+          </div>
+
+        </div>
+
+      </div>
+
+
+      <!-- ADDITIONAL FULL STACK PROJECT -->
+      <div class="col-12 col-md-6 col-xl-4">
+
+        <div class="iconic-card">
+
+          <i class="bi bi-window-stack bg-icon"></i>
+
+          <span class="card-label">
+            Web Application
+          </span>
+
+          <h3 class="card-title-fs">
+            Business Web Applications
+          </h3>
+
+          <p class="card-desc-fs">
+            Responsive business-focused web applications
+            designed to simplify operations and provide
+            practical digital solutions.
+          </p>
+
+          <div class="project-tech">
+            <span>React</span>
+            <span>Next.js</span>
+            <span>Node.js</span>
+            <span>MongoDB</span>
+          </div>
+
+          <div class="iconic-btn-group">
+
+            <a
+              href="https://github.com/ohin03"
+              target="_blank"
+              class="btn-iconic btn-iconic-git"
+              style="width:100%;"
+            >
+              <i class="bi bi-github"></i>
+              Explore GitHub
+            </a>
+
+          </div>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </div>
+
+</section>
+
+
+<!-- FRONTEND PROJECTS -->
+<section id="projects">
+
+  <div class="container">
+
+    <div class="section-heading">
+
+      <div class="section-kicker">
+        Frontend Development
+      </div>
+
+      <h2 class="projects-title">
+        Front-End Projects
+      </h2>
+
+    </div>
+
+    <div class="row g-3">
+
+
+      <!-- CAR -->
+      <div class="col-6 col-md-4">
+
+        <div class="pro-card">
+
+          <div class="icon-circle">
+            <i class="bi bi-car-front-fill"></i>
+          </div>
+
+          <h5 class="card-title-text">
+            Car Landing Page
+          </h5>
+
+          <div class="btn-stack">
+
+            <a
+              href="https://github.com/ohin03/API.git"
+              target="_blank"
+              class="btn-custom btn-git"
+            >
+              <i class="bi bi-github"></i>
+              Code
+            </a>
+
+            <a
+              href="https://car-website-221.netlify.app/"
+              target="_blank"
+              class="btn-custom btn-demo"
+            >
+              <i class="bi bi-display"></i>
+              Live
+            </a>
+
+          </div>
+
+        </div>
+
+      </div>
+
+
+      <!-- NEXT JS -->
+      <div class="col-6 col-md-4">
+
+        <div class="pro-card">
+
+          <div class="icon-circle">
+            <i class="bi bi-stack"></i>
+          </div>
+
+          <h5 class="card-title-text">
+            Next.js Web App
+          </h5>
+
+          <div class="btn-stack">
+
+            <a
+              href="https://github.com/ohin03/emad_telecom.git"
+              target="_blank"
+              class="btn-custom btn-git"
+            >
+              <i class="bi bi-github"></i>
+              Code
+            </a>
+
+            <a
+              href="https://emad-telecom.vercel.app"
+              target="_blank"
+              class="btn-custom btn-demo"
+            >
+              <i class="bi bi-display"></i>
+              Live
+            </a>
+
+          </div>
+
+        </div>
+
+      </div>
+
+
+      <!-- QUIZ -->
+      <div class="col-6 col-md-4">
+
+        <div class="pro-card">
+
+          <div class="icon-circle">
+            <i class="bi bi-patch-question"></i>
+          </div>
+
+          <h5 class="card-title-text">
+            Quiz Application
+          </h5>
+
+          <div class="btn-stack">
+
+            <a
+              href="https://github.com/ohin03/learn.git"
+              target="_blank"
+              class="btn-custom btn-git"
+            >
+              <i class="bi bi-github"></i>
+              Code
+            </a>
+
+            <a
+              href="https://quiz-app-2025-normal.netlify.app/"
+              target="_blank"
+              class="btn-custom btn-demo"
+            >
+              <i class="bi bi-display"></i>
+              Live
+            </a>
+
+          </div>
+
+        </div>
+
+      </div>
+
+
+      <!-- TIC TAC TOE -->
+      <div class="col-6 col-md-4">
+
+        <div class="pro-card">
+
+          <div class="icon-circle">
+            <i class="bi bi-controller"></i>
+          </div>
+
+          <h5 class="card-title-text">
+            Tic Tac Toe Game
+          </h5>
+
+          <div class="btn-stack">
+
+            <a
+              href="https://github.com/ohin03/TIC-TOC-TOE-GAMES.git"
+              target="_blank"
+              class="btn-custom btn-git"
+            >
+              <i class="bi bi-github"></i>
+              Code
+            </a>
+
+            <a
+              href="https://tic-toc-toe-2025.netlify.app/"
+              target="_blank"
+              class="btn-custom btn-demo"
+            >
+              <i class="bi bi-display"></i>
+              Live
+            </a>
+
+          </div>
+
+        </div>
+
+      </div>
+
+
+      <!-- CALCULATOR -->
+      <div class="col-6 col-md-4">
+
+        <div class="pro-card">
+
+          <div class="icon-circle">
+            <i class="bi bi-calculator"></i>
+          </div>
+
+          <h5 class="card-title-text">
+            Smart Calculator
+          </h5>
+
+          <div class="btn-stack">
+
+            <a
+              href="https://github.com/ohin03/calculator.git"
+              target="_blank"
+              class="btn-custom btn-git"
+            >
+              <i class="bi bi-github"></i>
+              Code
+            </a>
+
+            <a
+              href="https://calculator-prtc-2025.netlify.app/"
+              target="_blank"
+              class="btn-custom btn-demo"
+            >
+              <i class="bi bi-display"></i>
+              Live
+            </a>
+
+          </div>
+
+        </div>
+
+      </div>
+
+
+      <!-- SHOP -->
+      <div class="col-6 col-md-4">
+
+        <div class="pro-card">
+
+          <div class="icon-circle">
+            <i class="bi bi-shop-window"></i>
+          </div>
+
+          <h5 class="card-title-text">
+            Shop Landing Page
+          </h5>
+
+          <div class="btn-stack">
+
+            <a
+              href="https://github.com/ohin03/poject2.git"
+              target="_blank"
+              class="btn-custom btn-git"
+            >
+              <i class="bi bi-github"></i>
+              Code
+            </a>
+
+            <a
+              href="https://mobile-shop-landing-page-2025.netlify.app/"
+              target="_blank"
+              class="btn-custom btn-demo"
+            >
+              <i class="bi bi-display"></i>
+              Live
+            </a>
+
+          </div>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </div>
+
+</section>
+
+
+<!-- WHAT I DO -->
+<section id="what-i-do" class="section">
+
+  <div class="container">
+
+    <div class="section-heading">
+
+      <div class="section-kicker">
+        Services
+      </div>
+
+      <h2 class="section-title">
+        What I Do
+      </h2>
+
+      <p class="section-description">
+        I build digital solutions for businesses, products and modern web experiences.
+      </p>
+
+    </div>
 
     <div class="what-grid">
+
       <div class="what-card">
+
         <div class="what-icon">
           <i class="bi bi-layout-text-window-reverse"></i>
         </div>
+
         <h4>Frontend Development</h4>
-        <p class="text-white-50">Responsive UI using HTML, CSS, Bootstrap, React & Next.js.</p>
+
+        <p>
+          Responsive UI using HTML, CSS, Bootstrap,
+          JavaScript, React and Next.js.
+        </p>
+
       </div>
 
       <div class="what-card">
+
         <div class="what-icon">
           <i class="bi bi-server"></i>
         </div>
+
         <h4>Backend Development</h4>
-        <p class="text-white-50">REST API with Node.js, Express.js & MongoDB database.</p>
+
+        <p>
+          REST APIs with Node.js, Express.js and
+          MongoDB database.
+        </p>
+
       </div>
 
       <div class="what-card">
+
         <div class="what-icon">
           <i class="bi bi-shield-lock-fill"></i>
         </div>
+
         <h4>Authentication</h4>
-        <p class="text-white-50">JWT, role-based access & secure login systems.</p>
+
+        <p>
+          JWT authentication, role-based access
+          and secure login systems.
+        </p>
+
       </div>
 
       <div class="what-card">
+
         <div class="what-icon">
           <i class="bi bi-gear-fill"></i>
         </div>
-        <h4>Automation</h4>
-        <p class="text-white-50">Basic workflow automation & tool integrations (n8n, etc.).</p>
+
+        <h4>Business Systems</h4>
+
+        <p>
+          Custom dashboards, inventory,
+          sales and business management solutions.
+        </p>
+
       </div>
+
     </div>
+
   </div>
+
 </section>
 
-<!-- =========================
-   TOOLS
-========================= -->
+
+<!-- TOOLS -->
 <section id="tools" class="section">
+
   <div class="container">
-    <h2 class="section-title">
-      <span class="title-badge text-success">
-        <i class="bi bi-tools"></i> Tools I Use
-      </span>
-    </h2>
+
+    <div class="section-heading">
+
+      <div class="section-kicker">
+        Workflow
+      </div>
+
+      <h2 class="section-title">
+        Tools I Use
+      </h2>
+
+    </div>
 
     <div class="tool-wrap">
-      <span class="tool text-danger">VS Code</span>
-      <span class="tool text-danger ">Git & GitHub</span>
-      <span class="tool text-danger">Postman</span>
-      <span class="tool text-danger">Figma</span>
-      <span class="tool text-danger">Vercel</span>
-      <span class="tool text-danger">Netlify</span>
-      <span class="tool text-danger">MongoDB Atlas</span>
-      <span class="tool text-danger">Render</span>
+
+      <span class="tool">VS Code</span>
+      <span class="tool">Git & GitHub</span>
+      <span class="tool">Postman</span>
+      <span class="tool">Figma</span>
+      <span class="tool">Vercel</span>
+      <span class="tool">Netlify</span>
+      <span class="tool">MongoDB Atlas</span>
+      <span class="tool">Render</span>
+      <span class="tool">REST API</span>
+      <span class="tool">JWT</span>
+
     </div>
+
   </div>
+
 </section>
 
-<!-- =========================
-   WHY HIRE ME
-========================= -->
+
+<!-- WHY HIRE ME -->
 <section id="why-hire" class="section">
-  <div class="container p-4">
-    <h2 class="section-title">
-      <span class="title-badge ">
-        <i class="bi bi-rocket-takeoff-fill"></i> Why Hire Me?
-      </span>
-    </h2>
 
-    <div class="hire-grid ">
-      <div class="hire-card">
-        <h4>Fast Learner</h4>
-        <p class="text-white-50">I learn new technologies quickly and adapt fast.</p>
-      </div>
-
-      <div class="hire-card">
-        <h4>Clean Code</h4>
-        <p class="text-white-50">I write clean, readable and maintainable code.</p>
-      </div>
-
-      <div class="hire-card">
-        <h4>Real Projects</h4>
-        <p class="text-white-50">Built real-world projects with full-stack features.</p>
-      </div>
-
-      <div class="hire-card">
-        <h4>Always Improving</h4>
-        <p class="text-white-50">Constantly upgrading skills & learning new tools.</p>
-      </div>
-    </div>
-  </div>
-</section>
-
-
-
-
-
-
-
-
-
-
-
- 
-
-
-  <!-- CONTACT -->
-  
-<!-- CONTACT -->
-<section id="contact" class="section bg-primary-subtle">
   <div class="container">
 
-    <h2 class="section-title text-success">
-      <i class="bi bi-chat-dots-fill"></i> Contact
-    </h2>
+    <div class="section-heading">
+
+      <div class="section-kicker">
+        Working Style
+      </div>
+
+      <h2 class="section-title">
+        Why Hire Me?
+      </h2>
+
+    </div>
+
+    <div class="hire-grid">
+
+      <div class="hire-card">
+
+        <h4>
+          <i class="bi bi-lightning-charge-fill text-info me-2"></i>
+          Fast Learner
+        </h4>
+
+        <p>
+          I learn new technologies quickly and adapt fast.
+        </p>
+
+      </div>
+
+      <div class="hire-card">
+
+        <h4>
+          <i class="bi bi-code-square text-info me-2"></i>
+          Clean Code
+        </h4>
+
+        <p>
+          I write clean, readable and maintainable code.
+        </p>
+
+      </div>
+
+      <div class="hire-card">
+
+        <h4>
+          <i class="bi bi-briefcase-fill text-info me-2"></i>
+          Real Projects
+        </h4>
+
+        <p>
+          Built real-world projects with full-stack features.
+        </p>
+
+      </div>
+
+      <div class="hire-card">
+
+        <h4>
+          <i class="bi bi-arrow-up-circle-fill text-info me-2"></i>
+          Always Improving
+        </h4>
+
+        <p>
+          Constantly upgrading skills and learning new tools.
+        </p>
+
+      </div>
+
+    </div>
+
+  </div>
+
+</section>
+
+
+<!-- CONTACT -->
+<section id="contact" class="section">
+
+  <div class="container">
+
+    <div class="section-heading">
+
+      <div class="section-kicker">
+        Let's Connect
+      </div>
+
+      <h2 class="section-title">
+        Contact Me
+      </h2>
+
+      <p class="section-description">
+        Have a project, business idea or job opportunity?
+        Let's connect.
+      </p>
+
+    </div>
 
     <div class="contact-grid">
-      <a class="contact-card bg-warning" href="mailto:ohinnurfoisal@gmail.com">
+
+      <a
+        class="contact-card"
+        href="mailto:ohinnurfoisal@gmail.com"
+      >
+
         <div class="contact-icon">
           <i class="bi bi-envelope-fill"></i>
         </div>
+
         <h4>Email</h4>
-        <p>ohinnurfoisal@gmail.com</p>
+
+        <p>
+          ohinnurfoisal@gmail.com
+        </p>
+
       </a>
 
-      <a class="contact-card bg-warning" href="https://wa.me/8801971676314" target="_blank">
+
+      <a
+        class="contact-card"
+        href="https://wa.me/8801971676314"
+        target="_blank"
+      >
+
         <div class="contact-icon">
           <i class="bi bi-whatsapp"></i>
         </div>
+
         <h4>WhatsApp</h4>
-        <p>+8801971676314</p>
+
+        <p>
+          +8801971676314
+        </p>
+
       </a>
 
-      <a class="contact-card bg-warning" href="https://github.com/ohin03" target="_blank">
+
+      <a
+        class="contact-card"
+        href="https://github.com/ohin03"
+        target="_blank"
+      >
+
         <div class="contact-icon">
           <i class="bi bi-github"></i>
         </div>
+
         <h4>GitHub</h4>
-        <p>github.com/ohin03</p>
+
+        <p>
+          github.com/ohin03
+        </p>
+
       </a>
-       <!-- LinkedIn Added -->
-      <a class="contact-card bg-warning" href="https://www.linkedin.com/in/nur-foisal-ohin" target="_blank">
+
+
+      <a
+        class="contact-card"
+        href="https://www.linkedin.com/in/nur-foisal-ohin"
+        target="_blank"
+      >
+
         <div class="contact-icon">
           <i class="bi bi-linkedin"></i>
         </div>
+
         <h4>LinkedIn</h4>
-        <p>linkedin.com/in/nur-foisal-ohin</p>
+
+        <p>
+          linkedin.com/in/nur-foisal-ohin
+        </p>
+
       </a>
+
     </div>
 
   </div>
+
 </section>
 
-  <!-- FOOTER -->
- <footer class="footer">
+
+<!-- FOOTER -->
+<footer class="footer">
+
   <div class="container">
+
     <div class="row align-items-center">
 
-      <!-- Logo / Name -->
-      <div class="col-12 col-md-4 mb-3 mb-md-0">
-        
-        <p class="footer-subtitle">Full-Stack Developer</p>
+      <div class="col-md-4 mb-3 mb-md-0">
+
+        <h5 class="text-white fw-bold mb-1">
+          Nur Foisal Ohin
+        </h5>
+
+        <p class="footer-subtitle">
+          Full-Stack Developer
+        </p>
+
       </div>
 
-      <!-- Quick Links -->
-      <div class="col-12 col-md-4 mb-3 mb-md-0">
-        <h5 class="footer-heading">Quick Links</h5>
+
+      <div class="col-md-4 mb-3 mb-md-0">
+
+        <h5 class="footer-heading">
+          Quick Links
+        </h5>
+
         <div class="footer-links">
+
           <a href="#about">About</a>
           <a href="#skills">Skills</a>
-           <a href="#projects">Projects</a>
+          <a href="#projects-iconic">Projects</a>
           <a href="#contact">Contact</a>
+
         </div>
+
       </div>
 
-      <!-- Social -->
-      <div class="col-12 col-md-4 text-md-end">
-        <h5 class="footer-heading text-primary">Follow Me</h5>
+
+      <div class="col-md-4 text-md-end">
+
+        <h5 class="footer-heading">
+          Follow Me
+        </h5>
+
         <div class="social-icons">
-          <a href="https://github.com/ohin03" target="_blank"><i class="bi bi-github"></i></a>
-          <a href="https://www.linkedin.com/in/your-linkedin-id" target="_blank"><i class="bi bi-linkedin"></i></a>
-          <a href="https://wa.me/8801971676314" target="_blank"><i class="bi bi-whatsapp"></i></a>
+
+          <a
+            href="https://github.com/ohin03"
+            target="_blank"
+          >
+            <i class="bi bi-github"></i>
+          </a>
+
+          <a
+            href="https://www.linkedin.com/in/nur-foisal-ohin"
+            target="_blank"
+          >
+            <i class="bi bi-linkedin"></i>
+          </a>
+
+          <a
+            href="https://wa.me/8801971676314"
+            target="_blank"
+          >
+            <i class="bi bi-whatsapp"></i>
+          </a>
+
         </div>
+
       </div>
 
     </div>
 
     <hr class="footer-line">
 
-    <div class="row">
-      <div class="col-12 text-center">
-        <p class="footer-copy">© 2026 Nur Foisal Ohin. All Rights Reserved.</p>
-        
-      </div>
+    <div class="text-center">
+
+      <p class="footer-copy">
+        © 2026 Nur Foisal Ohin. All Rights Reserved.
+      </p>
+
     </div>
+
   </div>
+
 </footer>
 
 
-  <!-- Bootstrap JS -->
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/js/bootstrap.bundle.min.js"></script>
-  <!-- Custom JS -->
-  <script src="script.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/js/bootstrap.bundle.min.js"></script>
+<script src="main.js"></script>
+
 </body>
 </html>

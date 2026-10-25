@@ -1125,6 +1125,288 @@
       transform: translateY(0);
     }
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    /*OWN**/
+/* ==========================================
+PORTFOLIO ANALYTICS DASHBOARD
+========================================== */
+
+.analytics-card {
+isolation: isolate;
+border: 1px solid rgba(124, 60, 255, 0.38);
+background:
+radial-gradient(
+circle at 90% 5%,
+rgba(124, 60, 255, 0.17),
+transparent 38%
+),
+radial-gradient(
+circle at 5% 95%,
+rgba(0, 229, 255, 0.09),
+transparent 42%
+),
+linear-gradient(
+145deg,
+rgba(17, 17, 35, 0.98),
+rgba(5, 8, 15, 0.98)
+);
+
+box-shadow:
+inset 0 1px 0 rgba(255, 255, 255, 0.035),
+0 12px 35px rgba(0, 0, 0, 0.16);
+
+transition:
+transform 0.35s ease,
+border-color 0.35s ease,
+box-shadow 0.35s ease;
+}
+
+.analytics-card::before {
+content: "";
+position: absolute;
+inset: 0;
+z-index: -1;
+pointer-events: none;
+
+background: linear-gradient(
+120deg,
+transparent 15%,
+rgba(124, 60, 255, 0.08) 50%,
+transparent 85%
+);
+
+opacity: 0;
+transition: opacity 0.35s ease;
+}
+
+.analytics-card:hover {
+transform: translateY(-9px);
+border-color: rgba(124, 60, 255, 0.8);
+
+box-shadow:
+0 22px 55px rgba(0, 0, 0, 0.36),
+0 0 28px rgba(124, 60, 255, 0.11),
+0 0 20px rgba(0, 229, 255, 0.05);
+}
+
+.analytics-card:hover::before {
+opacity: 1;
+}
+
+.analytics-card .bg-icon {
+top: 32px;
+right: 14px;
+font-size: 6.5rem;
+color: rgba(124, 60, 255, 0.12);
+transition:
+transform 0.4s ease,
+color 0.4s ease;
+}
+
+.analytics-card:hover .bg-icon {
+color: rgba(124, 60, 255, 0.22);
+transform: rotate(-8deg) scale(1.08);
+}
+
+.analytics-badge {
+position: relative;
+z-index: 3;
+align-self: flex-start;
+
+display: inline-flex;
+align-items: center;
+gap: 7px;
+
+margin-bottom: 20px;
+padding: 7px 10px;
+
+color: #c4b5fd;
+background: rgba(124, 60, 255, 0.1);
+border: 1px solid rgba(167, 139, 250, 0.24);
+border-radius: 30px;
+
+font-size: 0.55rem;
+font-weight: 900;
+letter-spacing: 1px;
+}
+
+.analytics-badge span {
+width: 6px;
+height: 6px;
+flex-shrink: 0;
+border-radius: 50%;
+
+background: #a78bfa;
+box-shadow: 0 0 10px rgba(167, 139, 250, 0.8);
+
+animation: analyticsPulse 2s ease-in-out infinite;
+}
+
+@keyframes analyticsPulse {
+50% {
+opacity: 0.45;
+box-shadow: 0 0 3px rgba(167, 139, 250, 0.3);
+}
+}
+
+.analytics-card .card-label {
+color: #a78bfa;
+}
+
+.analytics-card .card-title-fs {
+max-width: 95%;
+font-size: 1.16rem;
+line-height: 1.5;
+letter-spacing: -0.35px;
+text-wrap: balance;
+}
+
+.analytics-card .card-desc-fs {
+color: #a2a4b8;
+}
+
+.analytics-features {
+position: relative;
+z-index: 2;
+
+display: flex;
+flex-wrap: wrap;
+gap: 7px;
+
+margin: 0 0 19px;
+}
+
+.analytics-features span {
+display: inline-flex;
+align-items: center;
+gap: 5px;
+
+padding: 7px 9px;
+border: 1px solid rgba(167, 139, 250, 0.15);
+border-radius: 8px;
+
+background: rgba(124, 60, 255, 0.055);
+color: #c4c6d8;
+
+font-size: 0.59rem;
+font-weight: 600;
+}
+
+.analytics-features i {
+color: #a78bfa;
+font-size: 0.72rem;
+}
+
+.analytics-card .project-tech span {
+color: #b9b4d2;
+border-color: rgba(167, 139, 250, 0.14);
+background: rgba(124, 60, 255, 0.055);
+transition:
+color 0.25s ease,
+border-color 0.25s ease;
+}
+
+.analytics-card .project-tech span:hover {
+color: #fff;
+border-color: rgba(167, 139, 250, 0.48);
+}
+
+.analytics-actions {
+gap: 9px;
+margin-top: auto;
+}
+
+.analytics-actions .btn-iconic {
+min-height: 42px;
+padding: 11px 9px;
+font-size: 0.68rem;
+}
+
+.analytics-actions .btn-iconic-live {
+color: #fff;
+border: 1px solid rgba(167, 139, 250, 0.3);
+
+background: linear-gradient(
+110deg,
+#6d28d9,
+#7c3cff 55%,
+#4f46e5
+);
+
+box-shadow: 0 5px 18px rgba(124, 60, 255, 0.15);
+}
+
+.analytics-actions .btn-iconic-live:hover {
+color: #fff;
+background: linear-gradient(110deg, #7c3cff, #6366f1);
+box-shadow: 0 0 22px rgba(124, 60, 255, 0.3);
+}
+
+.analytics-actions .btn-iconic-git {
+color: #e3ddff;
+border-color: rgba(167, 139, 250, 0.2);
+background: rgba(124, 60, 255, 0.07);
+}
+
+.analytics-actions .btn-iconic-git:hover {
+color: #fff;
+border-color: rgba(167, 139, 250, 0.55);
+background: rgba(124, 60, 255, 0.17);
+}
+
+@media (max-width: 576px) {
+.analytics-card .card-title-fs {
+font-size: 1.08rem;
+}
+
+.analytics-features {
+gap: 6px;
+}
+
+.analytics-features span {
+font-size: 0.56rem;
+}
+
+.analytics-actions {
+flex-direction: column;
+}
+
+.analytics-actions .btn-iconic {
+width: 100%;
+}
+}
+
+@media (prefers-reduced-motion: reduce) {
+.analytics-card,
+.analytics-card *,
+.analytics-card::before {
+animation: none !important;
+transition: none !important;
+}
+}
+
+
     /* RESPONSIVE */
     @media (max-width: 991px) {
       .hero {
@@ -2064,6 +2346,92 @@
         </div>
 
       </div>
+
+
+
+<!-- PORTFOLIO ANALYTICS DASHBOARD -->
+
+<div class="col-12 col-md-6 col-xl-4">
+
+  <div class="iconic-card analytics-card">
+
+
+<i class="bi bi-speedometer2 bg-icon"></i>
+
+<div class="analytics-badge">
+  <span></span>
+  FINTECH DASHBOARD
+</div>
+
+<span class="card-label">
+  Frontend Project
+</span>
+
+<h3 class="card-title-fs">
+  Portfolio Analytics Dashboard
+</h3>
+
+<p class="card-desc-fs">
+  Customizable portfolio analytics dashboard featuring
+  performance charts, asset allocation, risk metrics,
+  drawdown analysis, correlation matrices and Brinson
+  attribution.
+</p>
+
+<div class="analytics-features">
+  <span><i class="bi bi-bar-chart-line"></i> Analytics</span>
+  <span><i class="bi bi-grid-1x2"></i> Drag & Drop</span>
+  <span><i class="bi bi-palette"></i> Custom Themes</span>
+</div>
+
+<div class="project-tech">
+  <span>Next.js</span>
+  <span>React</span>
+  <span>TypeScript</span>
+  <span>Recharts</span>
+  <span>Zustand</span>
+  <span>Tailwind CSS</span>
+</div>
+
+<div class="iconic-btn-group analytics-actions">
+
+  <a
+    href="https://portfolio-dashboard-six-tawny.vercel.app/"
+    target="_blank"
+    rel="noopener noreferrer"
+    class="btn-iconic btn-iconic-live"
+    aria-label="View Portfolio Analytics Dashboard live demo"
+  >
+    <i class="bi bi-box-arrow-up-right"></i>
+    Live Demo
+  </a>
+
+  <a
+    href="https://github.com/ohin03/portfolio-dashboard"
+    target="_blank"
+    rel="noopener noreferrer"
+    class="btn-iconic btn-iconic-git"
+    aria-label="View Portfolio Analytics Dashboard source code on GitHub"
+  >
+    <i class="bi bi-github"></i>
+    Source Code
+  </a>
+
+</div>
+
+
+  </div>
+
+</div>
+
+
+
+
+
+
+
+
+
 
   
       <!-- multi-step loan project-->
